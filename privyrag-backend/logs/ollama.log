@@ -1,0 +1,999 @@
+2026-03-31 18:09:27,813 time=2026-03-31T18:09:27.813+05:30 level=INFO source=routes.go:1740 msg="server config" env="map[CUDA_VISIBLE_DEVICES: GGML_VK_VISIBLE_DEVICES: GPU_DEVICE_ORDINAL: HIP_VISIBLE_DEVICES: HSA_OVERRIDE_GFX_VERSION: HTTPS_PROXY: HTTP_PROXY: NO_PROXY: OLLAMA_CONTEXT_LENGTH:0 OLLAMA_DEBUG:INFO OLLAMA_DEBUG_LOG_REQUESTS:false OLLAMA_EDITOR: OLLAMA_FLASH_ATTENTION:false OLLAMA_GPU_OVERHEAD:0 OLLAMA_HOST:http://127.0.0.1:11434 OLLAMA_KEEP_ALIVE:5m0s OLLAMA_KV_CACHE_TYPE: OLLAMA_LLM_LIBRARY: OLLAMA_LOAD_TIMEOUT:5m0s OLLAMA_MAX_LOADED_MODELS:0 OLLAMA_MAX_QUEUE:512 OLLAMA_MODELS:C:\\Users\\Sohan Jala\\.ollama\\models OLLAMA_MULTIUSER_CACHE:false OLLAMA_NEW_ENGINE:false OLLAMA_NOHISTORY:false OLLAMA_NOPRUNE:false OLLAMA_NO_CLOUD:false OLLAMA_NUM_PARALLEL:1 OLLAMA_ORIGINS:[http://localhost https://localhost http://localhost:* https://localhost:* http://127.0.0.1 https://127.0.0.1 http://127.0.0.1:* https://127.0.0.1:* http://0.0.0.0 https://0.0.0.0 http://0.0.0.0:* https://0.0.0.0:* app://* file://* tauri://* vscode-webview://* vscode-file://*] OLLAMA_REMOTES:[ollama.com] OLLAMA_SCHED_SPREAD:false OLLAMA_VULKAN:false ROCR_VISIBLE_DEVICES:]"
+2026-03-31 18:09:27,814 time=2026-03-31T18:09:27.813+05:30 level=INFO source=routes.go:1742 msg="Ollama cloud disabled: false"
+2026-03-31 18:09:27,827 time=2026-03-31T18:09:27.827+05:30 level=INFO source=images.go:477 msg="total blobs: 14"
+2026-03-31 18:09:27,828 time=2026-03-31T18:09:27.828+05:30 level=INFO source=images.go:484 msg="total unused blobs removed: 0"
+2026-03-31 18:09:27,828 time=2026-03-31T18:09:27.828+05:30 level=INFO source=routes.go:1798 msg="Listening on 127.0.0.1:11434 (version 0.18.3)"
+2026-03-31 18:09:27,830 time=2026-03-31T18:09:27.830+05:30 level=INFO source=runner.go:67 msg="discovering available GPUs..."
+2026-03-31 18:09:27,846 time=2026-03-31T18:09:27.846+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 64127"
+2026-03-31 18:09:28,832 time=2026-03-31T18:09:28.831+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 64139"
+2026-03-31 18:09:29,565 time=2026-03-31T18:09:29.565+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 64151"
+2026-03-31 18:09:29,952 time=2026-03-31T18:09:29.952+05:30 level=INFO source=runner.go:106 msg="experimental Vulkan support disabled.  To enable, set OLLAMA_VULKAN=1"
+2026-03-31 18:09:29,953 time=2026-03-31T18:09:29.953+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 64164"
+2026-03-31 18:09:29,954 time=2026-03-31T18:09:29.954+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 64165"
+2026-03-31 18:09:30,203 time=2026-03-31T18:09:30.203+05:30 level=INFO source=types.go:42 msg="inference compute" id=GPU-e5221ff5-cbc6-11c4-e33b-f897cc77da53 filter_id="" library=CUDA compute=8.9 name=CUDA0 description="NVIDIA GeForce RTX 4070 Laptop GPU" libdirs=ollama,cuda_v13 driver=13.2 pci_id=0000:01:00.0 type=discrete total="8.0 GiB" available="7.5 GiB"
+2026-03-31 18:09:30,204 time=2026-03-31T18:09:30.203+05:30 level=INFO source=routes.go:1848 msg="vram-based default context" total_vram="8.0 GiB" default_num_ctx=4096
+2026-03-31 18:09:32,833 [GIN] 2026/03/31 - 18:09:32 | 200 |            0s |       127.0.0.1 | HEAD     "/"
+2026-03-31 18:09:32,834 [GIN] 2026/03/31 - 18:09:32 | 200 |      1.0568ms |       127.0.0.1 | GET      "/api/tags"
+2026-03-31 18:09:43,432 [GIN] 2026/03/31 - 18:09:43 | 200 |     13.9721ms |       127.0.0.1 | GET      "/api/tags"
+2026-03-31 18:09:45,472 [GIN] 2026/03/31 - 18:09:45 | 200 |      4.0962ms |       127.0.0.1 | GET      "/api/tags"
+2026-03-31 18:17:33,222 time=2026-03-31T18:17:33.222+05:30 level=INFO source=routes.go:1740 msg="server config" env="map[CUDA_VISIBLE_DEVICES: GGML_VK_VISIBLE_DEVICES: GPU_DEVICE_ORDINAL: HIP_VISIBLE_DEVICES: HSA_OVERRIDE_GFX_VERSION: HTTPS_PROXY: HTTP_PROXY: NO_PROXY: OLLAMA_CONTEXT_LENGTH:0 OLLAMA_DEBUG:INFO OLLAMA_DEBUG_LOG_REQUESTS:false OLLAMA_EDITOR: OLLAMA_FLASH_ATTENTION:false OLLAMA_GPU_OVERHEAD:0 OLLAMA_HOST:http://127.0.0.1:11434 OLLAMA_KEEP_ALIVE:5m0s OLLAMA_KV_CACHE_TYPE: OLLAMA_LLM_LIBRARY: OLLAMA_LOAD_TIMEOUT:5m0s OLLAMA_MAX_LOADED_MODELS:0 OLLAMA_MAX_QUEUE:512 OLLAMA_MODELS:C:\\Users\\Sohan Jala\\.ollama\\models OLLAMA_MULTIUSER_CACHE:false OLLAMA_NEW_ENGINE:false OLLAMA_NOHISTORY:false OLLAMA_NOPRUNE:false OLLAMA_NO_CLOUD:false OLLAMA_NUM_PARALLEL:1 OLLAMA_ORIGINS:[http://localhost https://localhost http://localhost:* https://localhost:* http://127.0.0.1 https://127.0.0.1 http://127.0.0.1:* https://127.0.0.1:* http://0.0.0.0 https://0.0.0.0 http://0.0.0.0:* https://0.0.0.0:* app://* file://* tauri://* vscode-webview://* vscode-file://*] OLLAMA_REMOTES:[ollama.com] OLLAMA_SCHED_SPREAD:false OLLAMA_VULKAN:false ROCR_VISIBLE_DEVICES:]"
+2026-03-31 18:17:33,222 time=2026-03-31T18:17:33.222+05:30 level=INFO source=routes.go:1742 msg="Ollama cloud disabled: false"
+2026-03-31 18:17:33,224 time=2026-03-31T18:17:33.224+05:30 level=INFO source=images.go:477 msg="total blobs: 14"
+2026-03-31 18:17:33,225 time=2026-03-31T18:17:33.225+05:30 level=INFO source=images.go:484 msg="total unused blobs removed: 0"
+2026-03-31 18:17:33,226 time=2026-03-31T18:17:33.226+05:30 level=INFO source=routes.go:1798 msg="Listening on 127.0.0.1:11434 (version 0.18.3)"
+2026-03-31 18:17:33,227 time=2026-03-31T18:17:33.227+05:30 level=INFO source=runner.go:67 msg="discovering available GPUs..."
+2026-03-31 18:17:33,243 time=2026-03-31T18:17:33.243+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 51587"
+2026-03-31 18:17:33,461 time=2026-03-31T18:17:33.460+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 51599"
+2026-03-31 18:17:33,677 time=2026-03-31T18:17:33.677+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 51611"
+2026-03-31 18:17:33,812 time=2026-03-31T18:17:33.812+05:30 level=INFO source=runner.go:106 msg="experimental Vulkan support disabled.  To enable, set OLLAMA_VULKAN=1"
+2026-03-31 18:17:33,814 time=2026-03-31T18:17:33.813+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 51622"
+2026-03-31 18:17:33,814 time=2026-03-31T18:17:33.813+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 51623"
+2026-03-31 18:17:34,064 time=2026-03-31T18:17:34.064+05:30 level=INFO source=types.go:42 msg="inference compute" id=GPU-e5221ff5-cbc6-11c4-e33b-f897cc77da53 filter_id="" library=CUDA compute=8.9 name=CUDA0 description="NVIDIA GeForce RTX 4070 Laptop GPU" libdirs=ollama,cuda_v13 driver=13.2 pci_id=0000:01:00.0 type=discrete total="8.0 GiB" available="7.5 GiB"
+2026-03-31 18:17:34,064 time=2026-03-31T18:17:34.064+05:30 level=INFO source=routes.go:1848 msg="vram-based default context" total_vram="8.0 GiB" default_num_ctx=4096
+2026-03-31 18:17:38,250 [GIN] 2026/03/31 - 18:17:38 | 200 |            0s |       127.0.0.1 | HEAD     "/"
+2026-03-31 18:17:38,252 [GIN] 2026/03/31 - 18:17:38 | 200 |      1.0787ms |       127.0.0.1 | GET      "/api/tags"
+2026-03-31 18:17:46,571 [GIN] 2026/03/31 - 18:17:46 | 200 |      6.9644ms |       127.0.0.1 | GET      "/api/tags"
+2026-03-31 18:17:48,652 [GIN] 2026/03/31 - 18:17:48 | 200 |      20.264ms |       127.0.0.1 | GET      "/api/tags"
+2026-03-31 18:23:31,789 time=2026-03-31T18:23:31.788+05:30 level=INFO source=routes.go:1740 msg="server config" env="map[CUDA_VISIBLE_DEVICES: GGML_VK_VISIBLE_DEVICES: GPU_DEVICE_ORDINAL: HIP_VISIBLE_DEVICES: HSA_OVERRIDE_GFX_VERSION: HTTPS_PROXY: HTTP_PROXY: NO_PROXY: OLLAMA_CONTEXT_LENGTH:0 OLLAMA_DEBUG:INFO OLLAMA_DEBUG_LOG_REQUESTS:false OLLAMA_EDITOR: OLLAMA_FLASH_ATTENTION:false OLLAMA_GPU_OVERHEAD:0 OLLAMA_HOST:http://127.0.0.1:11434 OLLAMA_KEEP_ALIVE:5m0s OLLAMA_KV_CACHE_TYPE: OLLAMA_LLM_LIBRARY: OLLAMA_LOAD_TIMEOUT:5m0s OLLAMA_MAX_LOADED_MODELS:0 OLLAMA_MAX_QUEUE:512 OLLAMA_MODELS:C:\\Users\\Sohan Jala\\.ollama\\models OLLAMA_MULTIUSER_CACHE:false OLLAMA_NEW_ENGINE:false OLLAMA_NOHISTORY:false OLLAMA_NOPRUNE:false OLLAMA_NO_CLOUD:false OLLAMA_NUM_PARALLEL:1 OLLAMA_ORIGINS:[http://localhost https://localhost http://localhost:* https://localhost:* http://127.0.0.1 https://127.0.0.1 http://127.0.0.1:* https://127.0.0.1:* http://0.0.0.0 https://0.0.0.0 http://0.0.0.0:* https://0.0.0.0:* app://* file://* tauri://* vscode-webview://* vscode-file://*] OLLAMA_REMOTES:[ollama.com] OLLAMA_SCHED_SPREAD:false OLLAMA_VULKAN:false ROCR_VISIBLE_DEVICES:]"
+2026-03-31 18:23:31,790 time=2026-03-31T18:23:31.789+05:30 level=INFO source=routes.go:1742 msg="Ollama cloud disabled: false"
+2026-03-31 18:23:31,792 time=2026-03-31T18:23:31.792+05:30 level=INFO source=images.go:477 msg="total blobs: 14"
+2026-03-31 18:23:31,793 time=2026-03-31T18:23:31.793+05:30 level=INFO source=images.go:484 msg="total unused blobs removed: 0"
+2026-03-31 18:23:31,793 time=2026-03-31T18:23:31.793+05:30 level=INFO source=routes.go:1798 msg="Listening on 127.0.0.1:11434 (version 0.18.3)"
+2026-03-31 18:23:31,796 time=2026-03-31T18:23:31.794+05:30 level=INFO source=runner.go:67 msg="discovering available GPUs..."
+2026-03-31 18:23:31,809 time=2026-03-31T18:23:31.809+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 61181"
+2026-03-31 18:23:32,028 time=2026-03-31T18:23:32.028+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 61193"
+2026-03-31 18:23:32,228 time=2026-03-31T18:23:32.228+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 61204"
+2026-03-31 18:23:32,373 time=2026-03-31T18:23:32.373+05:30 level=INFO source=runner.go:106 msg="experimental Vulkan support disabled.  To enable, set OLLAMA_VULKAN=1"
+2026-03-31 18:23:32,374 time=2026-03-31T18:23:32.374+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 61216"
+2026-03-31 18:23:32,375 time=2026-03-31T18:23:32.374+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 61217"
+2026-03-31 18:23:32,631 time=2026-03-31T18:23:32.631+05:30 level=INFO source=types.go:42 msg="inference compute" id=GPU-e5221ff5-cbc6-11c4-e33b-f897cc77da53 filter_id="" library=CUDA compute=8.9 name=CUDA0 description="NVIDIA GeForce RTX 4070 Laptop GPU" libdirs=ollama,cuda_v13 driver=13.2 pci_id=0000:01:00.0 type=discrete total="8.0 GiB" available="7.5 GiB"
+2026-03-31 18:23:32,632 time=2026-03-31T18:23:32.631+05:30 level=INFO source=routes.go:1848 msg="vram-based default context" total_vram="8.0 GiB" default_num_ctx=4096
+2026-03-31 18:23:36,793 [GIN] 2026/03/31 - 18:23:36 | 200 |            0s |       127.0.0.1 | HEAD     "/"
+2026-03-31 18:23:36,795 [GIN] 2026/03/31 - 18:23:36 | 200 |      1.0382ms |       127.0.0.1 | GET      "/api/tags"
+2026-03-31 18:23:47,730 [GIN] 2026/03/31 - 18:23:47 | 200 |      3.1587ms |       127.0.0.1 | GET      "/api/tags"
+2026-03-31 18:23:49,778 [GIN] 2026/03/31 - 18:23:49 | 200 |      8.3655ms |       127.0.0.1 | GET      "/api/tags"
+2026-03-31 18:26:51,092 time=2026-03-31T18:26:51.091+05:30 level=INFO source=routes.go:1740 msg="server config" env="map[CUDA_VISIBLE_DEVICES: GGML_VK_VISIBLE_DEVICES: GPU_DEVICE_ORDINAL: HIP_VISIBLE_DEVICES: HSA_OVERRIDE_GFX_VERSION: HTTPS_PROXY: HTTP_PROXY: NO_PROXY: OLLAMA_CONTEXT_LENGTH:0 OLLAMA_DEBUG:INFO OLLAMA_DEBUG_LOG_REQUESTS:false OLLAMA_EDITOR: OLLAMA_FLASH_ATTENTION:false OLLAMA_GPU_OVERHEAD:0 OLLAMA_HOST:http://127.0.0.1:11434 OLLAMA_KEEP_ALIVE:5m0s OLLAMA_KV_CACHE_TYPE: OLLAMA_LLM_LIBRARY: OLLAMA_LOAD_TIMEOUT:5m0s OLLAMA_MAX_LOADED_MODELS:0 OLLAMA_MAX_QUEUE:512 OLLAMA_MODELS:C:\\Users\\Sohan Jala\\.ollama\\models OLLAMA_MULTIUSER_CACHE:false OLLAMA_NEW_ENGINE:false OLLAMA_NOHISTORY:false OLLAMA_NOPRUNE:false OLLAMA_NO_CLOUD:false OLLAMA_NUM_PARALLEL:1 OLLAMA_ORIGINS:[http://localhost https://localhost http://localhost:* https://localhost:* http://127.0.0.1 https://127.0.0.1 http://127.0.0.1:* https://127.0.0.1:* http://0.0.0.0 https://0.0.0.0 http://0.0.0.0:* https://0.0.0.0:* app://* file://* tauri://* vscode-webview://* vscode-file://*] OLLAMA_REMOTES:[ollama.com] OLLAMA_SCHED_SPREAD:false OLLAMA_VULKAN:false ROCR_VISIBLE_DEVICES:]"
+2026-03-31 18:26:51,093 time=2026-03-31T18:26:51.092+05:30 level=INFO source=routes.go:1742 msg="Ollama cloud disabled: false"
+2026-03-31 18:26:51,094 time=2026-03-31T18:26:51.094+05:30 level=INFO source=images.go:477 msg="total blobs: 14"
+2026-03-31 18:26:51,095 time=2026-03-31T18:26:51.094+05:30 level=INFO source=images.go:484 msg="total unused blobs removed: 0"
+2026-03-31 18:26:51,095 time=2026-03-31T18:26:51.095+05:30 level=INFO source=routes.go:1798 msg="Listening on 127.0.0.1:11434 (version 0.18.3)"
+2026-03-31 18:26:51,096 time=2026-03-31T18:26:51.096+05:30 level=INFO source=runner.go:67 msg="discovering available GPUs..."
+2026-03-31 18:26:51,113 time=2026-03-31T18:26:51.113+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 63489"
+2026-03-31 18:26:51,335 time=2026-03-31T18:26:51.335+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 63501"
+2026-03-31 18:26:51,536 time=2026-03-31T18:26:51.536+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 63512"
+2026-03-31 18:26:51,681 time=2026-03-31T18:26:51.681+05:30 level=INFO source=runner.go:106 msg="experimental Vulkan support disabled.  To enable, set OLLAMA_VULKAN=1"
+2026-03-31 18:26:51,682 time=2026-03-31T18:26:51.682+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 63524"
+2026-03-31 18:26:51,682 time=2026-03-31T18:26:51.682+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 63525"
+2026-03-31 18:26:51,938 time=2026-03-31T18:26:51.938+05:30 level=INFO source=types.go:42 msg="inference compute" id=GPU-e5221ff5-cbc6-11c4-e33b-f897cc77da53 filter_id="" library=CUDA compute=8.9 name=CUDA0 description="NVIDIA GeForce RTX 4070 Laptop GPU" libdirs=ollama,cuda_v13 driver=13.2 pci_id=0000:01:00.0 type=discrete total="8.0 GiB" available="7.5 GiB"
+2026-03-31 18:26:51,938 time=2026-03-31T18:26:51.938+05:30 level=INFO source=routes.go:1848 msg="vram-based default context" total_vram="8.0 GiB" default_num_ctx=4096
+2026-03-31 18:26:56,128 [GIN] 2026/03/31 - 18:26:56 | 200 |       536.8µs |       127.0.0.1 | HEAD     "/"
+2026-03-31 18:26:56,129 [GIN] 2026/03/31 - 18:26:56 | 200 |      1.1174ms |       127.0.0.1 | GET      "/api/tags"
+2026-03-31 18:27:08,952 [GIN] 2026/03/31 - 18:27:08 | 200 |     21.2738ms |       127.0.0.1 | GET      "/api/tags"
+2026-03-31 18:27:11,007 [GIN] 2026/03/31 - 18:27:11 | 200 |     18.0127ms |       127.0.0.1 | GET      "/api/tags"
+2026-03-31 18:28:09,415 [GIN] 2026/03/31 - 18:28:09 | 200 |      2.6204ms |       127.0.0.1 | GET      "/api/tags"
+2026-03-31 18:31:36,840 time=2026-03-31T18:31:36.840+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 62343"
+2026-03-31 18:31:37,073 time=2026-03-31T18:31:37.071+05:30 level=INFO source=cpu_windows.go:148 msg=packages count=1
+2026-03-31 18:31:37,073 time=2026-03-31T18:31:37.073+05:30 level=INFO source=cpu_windows.go:164 msg="efficiency cores detected" maxEfficiencyClass=1
+2026-03-31 18:31:37,073 time=2026-03-31T18:31:37.073+05:30 level=INFO source=cpu_windows.go:195 msg="" package=0 cores=16 efficiency=8 threads=24
+2026-03-31 18:31:37,230 llama_model_loader: loaded meta data with 22 key-value pairs and 291 tensors from C:\Users\Sohan Jala\.ollama\models\blobs\sha256-6a0746a1ec1aef3e7ec53868f220ff6e389f6f8ef87a01d77c96807de94ca2aa (version GGUF V3 (latest))
+2026-03-31 18:31:37,230 llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+2026-03-31 18:31:37,231 llama_model_loader: - kv   0:                       general.architecture str              = llama
+2026-03-31 18:31:37,231 llama_model_loader: - kv   1:                               general.name str              = Meta-Llama-3-8B-Instruct
+2026-03-31 18:31:37,231 llama_model_loader: - kv   2:                          llama.block_count u32              = 32
+2026-03-31 18:31:37,232 llama_model_loader: - kv   3:                       llama.context_length u32              = 8192
+2026-03-31 18:31:37,232 llama_model_loader: - kv   4:                     llama.embedding_length u32              = 4096
+2026-03-31 18:31:37,232 llama_model_loader: - kv   5:                  llama.feed_forward_length u32              = 14336
+2026-03-31 18:31:37,232 llama_model_loader: - kv   6:                 llama.attention.head_count u32              = 32
+2026-03-31 18:31:37,232 llama_model_loader: - kv   7:              llama.attention.head_count_kv u32              = 8
+2026-03-31 18:31:37,233 llama_model_loader: - kv   8:                       llama.rope.freq_base f32              = 500000.000000
+2026-03-31 18:31:37,233 llama_model_loader: - kv   9:     llama.attention.layer_norm_rms_epsilon f32              = 0.000010
+2026-03-31 18:31:37,233 llama_model_loader: - kv  10:                          general.file_type u32              = 2
+2026-03-31 18:31:37,233 llama_model_loader: - kv  11:                           llama.vocab_size u32              = 128256
+2026-03-31 18:31:37,233 llama_model_loader: - kv  12:                 llama.rope.dimension_count u32              = 128
+2026-03-31 18:31:37,234 llama_model_loader: - kv  13:                       tokenizer.ggml.model str              = gpt2
+2026-03-31 18:31:37,234 llama_model_loader: - kv  14:                         tokenizer.ggml.pre str              = llama-bpe
+2026-03-31 18:31:37,251 llama_model_loader: - kv  15:                      tokenizer.ggml.tokens arr[str,128256]  = ["!", "\"", "#", "$", "%", "&", "'", ...
+2026-03-31 18:31:37,259 llama_model_loader: - kv  16:                  tokenizer.ggml.token_type arr[i32,128256]  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+2026-03-31 18:31:37,303 llama_model_loader: - kv  17:                      tokenizer.ggml.merges arr[str,280147]  = ["Ġ Ġ", "Ġ ĠĠĠ", "ĠĠ ĠĠ", "...
+2026-03-31 18:31:37,303 llama_model_loader: - kv  18:                tokenizer.ggml.bos_token_id u32              = 128000
+2026-03-31 18:31:37,304 llama_model_loader: - kv  19:                tokenizer.ggml.eos_token_id u32              = 128009
+2026-03-31 18:31:37,304 llama_model_loader: - kv  20:                    tokenizer.chat_template str              = {% set loop_messages = messages %}{% ...
+2026-03-31 18:31:37,304 llama_model_loader: - kv  21:               general.quantization_version u32              = 2
+2026-03-31 18:31:37,304 llama_model_loader: - type  f32:   65 tensors
+2026-03-31 18:31:37,304 llama_model_loader: - type q4_0:  225 tensors
+2026-03-31 18:31:37,305 llama_model_loader: - type q6_K:    1 tensors
+2026-03-31 18:31:37,305 print_info: file format = GGUF V3 (latest)
+2026-03-31 18:31:37,306 print_info: file type   = Q4_0
+2026-03-31 18:31:37,306 print_info: file size   = 4.33 GiB (4.64 BPW)
+2026-03-31 18:31:37,462 load: printing all EOG tokens:
+2026-03-31 18:31:37,462 load:   - 128001 ('<|end_of_text|>')
+2026-03-31 18:31:37,462 load:   - 128009 ('<|eot_id|>')
+2026-03-31 18:31:37,462 load: special tokens cache size = 256
+2026-03-31 18:31:37,503 load: token to piece cache size = 0.8000 MB
+2026-03-31 18:31:37,503 print_info: arch             = llama
+2026-03-31 18:31:37,504 print_info: vocab_only       = 1
+2026-03-31 18:31:37,504 print_info: no_alloc         = 0
+2026-03-31 18:31:37,505 print_info: model type       = ?B
+2026-03-31 18:31:37,505 print_info: model params     = 8.03 B
+2026-03-31 18:31:37,505 print_info: general.name     = Meta-Llama-3-8B-Instruct
+2026-03-31 18:31:37,505 print_info: vocab type       = BPE
+2026-03-31 18:31:37,505 print_info: n_vocab          = 128256
+2026-03-31 18:31:37,506 print_info: n_merges         = 280147
+2026-03-31 18:31:37,506 print_info: BOS token        = 128000 '<|begin_of_text|>'
+2026-03-31 18:31:37,506 print_info: EOS token        = 128009 '<|eot_id|>'
+2026-03-31 18:31:37,506 print_info: EOT token        = 128001 '<|end_of_text|>'
+2026-03-31 18:31:37,506 print_info: LF token         = 198 'Ċ'
+2026-03-31 18:31:37,506 print_info: EOG token        = 128001 '<|end_of_text|>'
+2026-03-31 18:31:37,507 print_info: EOG token        = 128009 '<|eot_id|>'
+2026-03-31 18:31:37,507 print_info: max token length = 256
+2026-03-31 18:31:37,507 llama_model_load: vocab only - skipping tensors
+2026-03-31 18:31:37,508 time=2026-03-31T18:31:37.507+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --model C:\\Users\\Sohan Jala\\.ollama\\models\\blobs\\sha256-6a0746a1ec1aef3e7ec53868f220ff6e389f6f8ef87a01d77c96807de94ca2aa --port 54918"
+2026-03-31 18:31:37,515 time=2026-03-31T18:31:37.515+05:30 level=INFO source=sched.go:484 msg="system memory" total="15.7 GiB" free="1.7 GiB" free_swap="18.2 GiB"
+2026-03-31 18:31:37,515 time=2026-03-31T18:31:37.515+05:30 level=INFO source=sched.go:491 msg="gpu memory" id=GPU-e5221ff5-cbc6-11c4-e33b-f897cc77da53 library=CUDA available="7.1 GiB" free="7.5 GiB" minimum="457.0 MiB" overhead="0 B"
+2026-03-31 18:31:37,516 time=2026-03-31T18:31:37.515+05:30 level=INFO source=server.go:499 msg="loading model" "model layers"=33 requested=-1
+2026-03-31 18:31:37,519 time=2026-03-31T18:31:37.518+05:30 level=INFO source=device.go:240 msg="model weights" device=CUDA0 size="4.1 GiB"
+2026-03-31 18:31:37,519 time=2026-03-31T18:31:37.519+05:30 level=INFO source=device.go:251 msg="kv cache" device=CUDA0 size="512.0 MiB"
+2026-03-31 18:31:37,520 time=2026-03-31T18:31:37.519+05:30 level=INFO source=device.go:262 msg="compute graph" device=CUDA0 size="296.0 MiB"
+2026-03-31 18:31:37,520 time=2026-03-31T18:31:37.519+05:30 level=INFO source=device.go:272 msg="total memory" size="4.8 GiB"
+2026-03-31 18:31:37,623 time=2026-03-31T18:31:37.622+05:30 level=INFO source=runner.go:965 msg="starting go runner"
+2026-03-31 18:31:37,634 load_backend: loaded CPU backend from C:\Users\Sohan Jala\AppData\Local\Programs\Ollama\lib\ollama\ggml-cpu-alderlake.dll
+2026-03-31 18:31:37,684 ggml_cuda_init: GGML_CUDA_FORCE_MMQ:    no
+2026-03-31 18:31:37,685 ggml_cuda_init: GGML_CUDA_FORCE_CUBLAS: no
+2026-03-31 18:31:37,685 ggml_cuda_init: found 1 CUDA devices:
+2026-03-31 18:31:37,685 Device 0: NVIDIA GeForce RTX 4070 Laptop GPU, compute capability 8.9, VMM: yes, ID: GPU-e5221ff5-cbc6-11c4-e33b-f897cc77da53
+2026-03-31 18:31:37,686 load_backend: loaded CUDA backend from C:\Users\Sohan Jala\AppData\Local\Programs\Ollama\lib\ollama\cuda_v13\ggml-cuda.dll
+2026-03-31 18:31:37,686 time=2026-03-31T18:31:37.685+05:30 level=INFO source=ggml.go:104 msg=system CPU.0.SSE3=1 CPU.0.SSSE3=1 CPU.0.AVX=1 CPU.0.AVX_VNNI=1 CPU.0.AVX2=1 CPU.0.F16C=1 CPU.0.FMA=1 CPU.0.BMI2=1 CPU.0.LLAMAFILE=1 CPU.1.LLAMAFILE=1 CUDA.0.ARCHS=750,800,860,870,890,900,1000,1030,1100,1200,1210 CUDA.0.USE_GRAPHS=1 CUDA.0.PEER_MAX_BATCH_SIZE=128 compiler=cgo(clang)
+2026-03-31 18:31:37,686 time=2026-03-31T18:31:37.686+05:30 level=INFO source=runner.go:1001 msg="Server listening on 127.0.0.1:54918"
+2026-03-31 18:31:37,698 time=2026-03-31T18:31:37.698+05:30 level=INFO source=runner.go:895 msg=load request="{Operation:commit LoraPath:[] Parallel:1 BatchSize:512 FlashAttention:Auto KvSize:4096 KvCacheType: NumThreads:8 GPULayers:33[ID:GPU-e5221ff5-cbc6-11c4-e33b-f897cc77da53 Layers:33(0..32)] MultiUserCache:false ProjectorPath: MainGPU:0 UseMmap:false}"
+2026-03-31 18:31:37,701 time=2026-03-31T18:31:37.701+05:30 level=INFO source=server.go:1352 msg="waiting for llama runner to start responding"
+2026-03-31 18:31:37,702 time=2026-03-31T18:31:37.702+05:30 level=INFO source=server.go:1386 msg="waiting for server to become available" status="llm server loading model"
+2026-03-31 18:31:37,721 ggml_backend_cuda_device_get_memory device GPU-e5221ff5-cbc6-11c4-e33b-f897cc77da53 utilizing NVML memory reporting free: 8097701888 total: 8585740288
+2026-03-31 18:31:37,722 llama_model_load_from_file_impl: using device CUDA0 (NVIDIA GeForce RTX 4070 Laptop GPU) (0000:01:00.0) - 7722 MiB free
+2026-03-31 18:31:37,755 llama_model_loader: loaded meta data with 22 key-value pairs and 291 tensors from C:\Users\Sohan Jala\.ollama\models\blobs\sha256-6a0746a1ec1aef3e7ec53868f220ff6e389f6f8ef87a01d77c96807de94ca2aa (version GGUF V3 (latest))
+2026-03-31 18:31:37,755 llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+2026-03-31 18:31:37,756 llama_model_loader: - kv   0:                       general.architecture str              = llama
+2026-03-31 18:31:37,756 llama_model_loader: - kv   1:                               general.name str              = Meta-Llama-3-8B-Instruct
+2026-03-31 18:31:37,756 llama_model_loader: - kv   2:                          llama.block_count u32              = 32
+2026-03-31 18:31:37,756 llama_model_loader: - kv   3:                       llama.context_length u32              = 8192
+2026-03-31 18:31:37,757 llama_model_loader: - kv   4:                     llama.embedding_length u32              = 4096
+2026-03-31 18:31:37,757 llama_model_loader: - kv   5:                  llama.feed_forward_length u32              = 14336
+2026-03-31 18:31:37,758 llama_model_loader: - kv   6:                 llama.attention.head_count u32              = 32
+2026-03-31 18:31:37,758 llama_model_loader: - kv   7:              llama.attention.head_count_kv u32              = 8
+2026-03-31 18:31:37,758 llama_model_loader: - kv   8:                       llama.rope.freq_base f32              = 500000.000000
+2026-03-31 18:31:37,758 llama_model_loader: - kv   9:     llama.attention.layer_norm_rms_epsilon f32              = 0.000010
+2026-03-31 18:31:37,759 llama_model_loader: - kv  10:                          general.file_type u32              = 2
+2026-03-31 18:31:37,759 llama_model_loader: - kv  11:                           llama.vocab_size u32              = 128256
+2026-03-31 18:31:37,760 llama_model_loader: - kv  12:                 llama.rope.dimension_count u32              = 128
+2026-03-31 18:31:37,761 llama_model_loader: - kv  13:                       tokenizer.ggml.model str              = gpt2
+2026-03-31 18:31:37,762 llama_model_loader: - kv  14:                         tokenizer.ggml.pre str              = llama-bpe
+2026-03-31 18:31:37,768 llama_model_loader: - kv  15:                      tokenizer.ggml.tokens arr[str,128256]  = ["!", "\"", "#", "$", "%", "&", "'", ...
+2026-03-31 18:31:37,770 llama_model_loader: - kv  16:                  tokenizer.ggml.token_type arr[i32,128256]  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+2026-03-31 18:31:37,795 llama_model_loader: - kv  17:                      tokenizer.ggml.merges arr[str,280147]  = ["Ġ Ġ", "Ġ ĠĠĠ", "ĠĠ ĠĠ", "...
+2026-03-31 18:31:37,796 llama_model_loader: - kv  18:                tokenizer.ggml.bos_token_id u32              = 128000
+2026-03-31 18:31:37,796 llama_model_loader: - kv  19:                tokenizer.ggml.eos_token_id u32              = 128009
+2026-03-31 18:31:37,796 llama_model_loader: - kv  20:                    tokenizer.chat_template str              = {% set loop_messages = messages %}{% ...
+2026-03-31 18:31:37,796 llama_model_loader: - kv  21:               general.quantization_version u32              = 2
+2026-03-31 18:31:37,797 llama_model_loader: - type  f32:   65 tensors
+2026-03-31 18:31:37,797 llama_model_loader: - type q4_0:  225 tensors
+2026-03-31 18:31:37,797 llama_model_loader: - type q6_K:    1 tensors
+2026-03-31 18:31:37,797 print_info: file format = GGUF V3 (latest)
+2026-03-31 18:31:37,798 print_info: file type   = Q4_0
+2026-03-31 18:31:37,798 print_info: file size   = 4.33 GiB (4.64 BPW)
+2026-03-31 18:31:37,906 load: printing all EOG tokens:
+2026-03-31 18:31:37,906 load:   - 128001 ('<|end_of_text|>')
+2026-03-31 18:31:37,906 load:   - 128009 ('<|eot_id|>')
+2026-03-31 18:31:37,907 load: special tokens cache size = 256
+2026-03-31 18:31:37,928 load: token to piece cache size = 0.8000 MB
+2026-03-31 18:31:37,928 print_info: arch             = llama
+2026-03-31 18:31:37,929 print_info: vocab_only       = 0
+2026-03-31 18:31:37,929 print_info: no_alloc         = 0
+2026-03-31 18:31:37,929 print_info: n_ctx_train      = 8192
+2026-03-31 18:31:37,929 print_info: n_embd           = 4096
+2026-03-31 18:31:37,929 print_info: n_embd_inp       = 4096
+2026-03-31 18:31:37,929 print_info: n_layer          = 32
+2026-03-31 18:31:37,930 print_info: n_head           = 32
+2026-03-31 18:31:37,930 print_info: n_head_kv        = 8
+2026-03-31 18:31:37,930 print_info: n_rot            = 128
+2026-03-31 18:31:37,930 print_info: n_swa            = 0
+2026-03-31 18:31:37,930 print_info: is_swa_any       = 0
+2026-03-31 18:31:37,931 print_info: n_embd_head_k    = 128
+2026-03-31 18:31:37,931 print_info: n_embd_head_v    = 128
+2026-03-31 18:31:37,931 print_info: n_gqa            = 4
+2026-03-31 18:31:37,931 print_info: n_embd_k_gqa     = 1024
+2026-03-31 18:31:37,932 print_info: n_embd_v_gqa     = 1024
+2026-03-31 18:31:37,932 print_info: f_norm_eps       = 0.0e+00
+2026-03-31 18:31:37,932 print_info: f_norm_rms_eps   = 1.0e-05
+2026-03-31 18:31:37,932 print_info: f_clamp_kqv      = 0.0e+00
+2026-03-31 18:31:37,932 print_info: f_max_alibi_bias = 0.0e+00
+2026-03-31 18:31:37,933 print_info: f_logit_scale    = 0.0e+00
+2026-03-31 18:31:37,933 print_info: f_attn_scale     = 0.0e+00
+2026-03-31 18:31:37,933 print_info: n_ff             = 14336
+2026-03-31 18:31:37,933 print_info: n_expert         = 0
+2026-03-31 18:31:37,933 print_info: n_expert_used    = 0
+2026-03-31 18:31:37,934 print_info: n_expert_groups  = 0
+2026-03-31 18:31:37,934 print_info: n_group_used     = 0
+2026-03-31 18:31:37,934 print_info: causal attn      = 1
+2026-03-31 18:31:37,934 print_info: pooling type     = 0
+2026-03-31 18:31:37,934 print_info: rope type        = 0
+2026-03-31 18:31:37,935 print_info: rope scaling     = linear
+2026-03-31 18:31:37,935 print_info: freq_base_train  = 500000.0
+2026-03-31 18:31:37,935 print_info: freq_scale_train = 1
+2026-03-31 18:31:37,935 print_info: n_ctx_orig_yarn  = 8192
+2026-03-31 18:31:37,936 print_info: rope_yarn_log_mul= 0.0000
+2026-03-31 18:31:37,936 print_info: rope_finetuned   = unknown
+2026-03-31 18:31:37,936 print_info: model type       = 8B
+2026-03-31 18:31:37,937 print_info: model params     = 8.03 B
+2026-03-31 18:31:37,937 print_info: general.name     = Meta-Llama-3-8B-Instruct
+2026-03-31 18:31:37,937 print_info: vocab type       = BPE
+2026-03-31 18:31:37,938 print_info: n_vocab          = 128256
+2026-03-31 18:31:37,938 print_info: n_merges         = 280147
+2026-03-31 18:31:37,938 print_info: BOS token        = 128000 '<|begin_of_text|>'
+2026-03-31 18:31:37,939 print_info: EOS token        = 128009 '<|eot_id|>'
+2026-03-31 18:31:37,939 print_info: EOT token        = 128001 '<|end_of_text|>'
+2026-03-31 18:31:37,939 print_info: LF token         = 198 'Ċ'
+2026-03-31 18:31:37,940 print_info: EOG token        = 128001 '<|end_of_text|>'
+2026-03-31 18:31:37,940 print_info: EOG token        = 128009 '<|eot_id|>'
+2026-03-31 18:31:37,940 print_info: max token length = 256
+2026-03-31 18:31:37,940 load_tensors: loading model tensors, this can take a while... (mmap = false)
+2026-03-31 18:31:37,991 load_tensors: offloading 32 repeating layers to GPU
+2026-03-31 18:31:37,991 load_tensors: offloading output layer to GPU
+2026-03-31 18:31:37,992 load_tensors: offloaded 33/33 layers to GPU
+2026-03-31 18:31:37,992 load_tensors:        CUDA0 model buffer size =  4155.99 MiB
+2026-03-31 18:31:37,992 load_tensors:    CUDA_Host model buffer size =   281.81 MiB
+2026-03-31 18:31:42,506 llama_context: constructing llama_context
+2026-03-31 18:31:42,508 llama_context: n_seq_max     = 1
+2026-03-31 18:31:42,509 llama_context: n_ctx         = 4096
+2026-03-31 18:31:42,509 llama_context: n_ctx_seq     = 4096
+2026-03-31 18:31:42,510 llama_context: n_batch       = 512
+2026-03-31 18:31:42,511 llama_context: n_ubatch      = 512
+2026-03-31 18:31:42,512 llama_context: causal_attn   = 1
+2026-03-31 18:31:42,515 llama_context: flash_attn    = auto
+2026-03-31 18:31:42,517 llama_context: kv_unified    = false
+2026-03-31 18:31:42,519 llama_context: freq_base     = 500000.0
+2026-03-31 18:31:42,521 llama_context: freq_scale    = 1
+2026-03-31 18:31:42,523 llama_context: n_ctx_seq (4096) < n_ctx_train (8192) -- the full capacity of the model will not be utilized
+2026-03-31 18:31:42,525 llama_context:  CUDA_Host  output buffer size =     0.50 MiB
+2026-03-31 18:31:42,527 llama_kv_cache:      CUDA0 KV buffer size =   512.00 MiB
+2026-03-31 18:31:42,540 llama_kv_cache: size =  512.00 MiB (  4096 cells,  32 layers,  1/1 seqs), K (f16):  256.00 MiB, V (f16):  256.00 MiB
+2026-03-31 18:31:42,556 llama_context: Flash Attention was auto, set to enabled
+2026-03-31 18:32:35,526 llama_context:      CUDA0 compute buffer size =   258.50 MiB
+2026-03-31 18:32:35,527 llama_context:  CUDA_Host compute buffer size =    16.01 MiB
+2026-03-31 18:32:35,527 llama_context: graph nodes  = 999
+2026-03-31 18:32:35,527 llama_context: graph splits = 2
+2026-03-31 18:32:35,587 time=2026-03-31T18:32:35.587+05:30 level=INFO source=server.go:1390 msg="llama runner started in 58.07 seconds"
+2026-03-31 18:32:35,588 time=2026-03-31T18:32:35.587+05:30 level=INFO source=sched.go:561 msg="loaded runners" count=1
+2026-03-31 18:32:35,590 time=2026-03-31T18:32:35.587+05:30 level=INFO source=server.go:1352 msg="waiting for llama runner to start responding"
+2026-03-31 18:32:35,591 time=2026-03-31T18:32:35.590+05:30 level=INFO source=server.go:1390 msg="llama runner started in 58.08 seconds"
+2026-03-31 18:32:36,335 [GIN] 2026/03/31 - 18:32:36 | 200 |          1m0s |       127.0.0.1 | POST     "/api/generate"
+2026-03-31 18:37:36,353 time=2026-03-31T18:37:36.353+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 60238"
+2026-03-31 18:37:36,894 time=2026-03-31T18:37:36.894+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 60254"
+2026-03-31 18:41:10,500 time=2026-03-31T18:41:10.499+05:30 level=INFO source=routes.go:1740 msg="server config" env="map[CUDA_VISIBLE_DEVICES: GGML_VK_VISIBLE_DEVICES: GPU_DEVICE_ORDINAL: HIP_VISIBLE_DEVICES: HSA_OVERRIDE_GFX_VERSION: HTTPS_PROXY: HTTP_PROXY: NO_PROXY: OLLAMA_CONTEXT_LENGTH:0 OLLAMA_DEBUG:INFO OLLAMA_DEBUG_LOG_REQUESTS:false OLLAMA_EDITOR: OLLAMA_FLASH_ATTENTION:false OLLAMA_GPU_OVERHEAD:0 OLLAMA_HOST:http://127.0.0.1:11434 OLLAMA_KEEP_ALIVE:5m0s OLLAMA_KV_CACHE_TYPE: OLLAMA_LLM_LIBRARY: OLLAMA_LOAD_TIMEOUT:5m0s OLLAMA_MAX_LOADED_MODELS:0 OLLAMA_MAX_QUEUE:512 OLLAMA_MODELS:C:\\Users\\Sohan Jala\\.ollama\\models OLLAMA_MULTIUSER_CACHE:false OLLAMA_NEW_ENGINE:false OLLAMA_NOHISTORY:false OLLAMA_NOPRUNE:false OLLAMA_NO_CLOUD:false OLLAMA_NUM_PARALLEL:1 OLLAMA_ORIGINS:[http://localhost https://localhost http://localhost:* https://localhost:* http://127.0.0.1 https://127.0.0.1 http://127.0.0.1:* https://127.0.0.1:* http://0.0.0.0 https://0.0.0.0 http://0.0.0.0:* https://0.0.0.0:* app://* file://* tauri://* vscode-webview://* vscode-file://*] OLLAMA_REMOTES:[ollama.com] OLLAMA_SCHED_SPREAD:false OLLAMA_VULKAN:false ROCR_VISIBLE_DEVICES:]"
+2026-03-31 18:41:10,501 time=2026-03-31T18:41:10.500+05:30 level=INFO source=routes.go:1742 msg="Ollama cloud disabled: false"
+2026-03-31 18:41:10,507 time=2026-03-31T18:41:10.507+05:30 level=INFO source=images.go:477 msg="total blobs: 14"
+2026-03-31 18:41:10,508 time=2026-03-31T18:41:10.508+05:30 level=INFO source=images.go:484 msg="total unused blobs removed: 0"
+2026-03-31 18:41:10,508 time=2026-03-31T18:41:10.508+05:30 level=INFO source=routes.go:1798 msg="Listening on 127.0.0.1:11434 (version 0.18.3)"
+2026-03-31 18:41:10,509 time=2026-03-31T18:41:10.509+05:30 level=INFO source=runner.go:67 msg="discovering available GPUs..."
+2026-03-31 18:41:10,525 time=2026-03-31T18:41:10.525+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 57411"
+2026-03-31 18:41:11,405 time=2026-03-31T18:41:11.405+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 57423"
+2026-03-31 18:41:11,609 time=2026-03-31T18:41:11.609+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 57434"
+2026-03-31 18:41:11,823 time=2026-03-31T18:41:11.823+05:30 level=INFO source=runner.go:464 msg="failure during GPU discovery" OLLAMA_LIBRARY_PATH="[C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\lib\\ollama C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\lib\\ollama\\rocm]" extra_envs=map[] error="failed to finish discovery before timeout"
+2026-03-31 18:41:11,824 time=2026-03-31T18:41:11.823+05:30 level=INFO source=runner.go:106 msg="experimental Vulkan support disabled.  To enable, set OLLAMA_VULKAN=1"
+2026-03-31 18:41:11,825 time=2026-03-31T18:41:11.824+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 57446"
+2026-03-31 18:41:11,829 time=2026-03-31T18:41:11.824+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 57447"
+2026-03-31 18:41:16,163 time=2026-03-31T18:41:16.162+05:30 level=INFO source=routes.go:1740 msg="server config" env="map[CUDA_VISIBLE_DEVICES: GGML_VK_VISIBLE_DEVICES: GPU_DEVICE_ORDINAL: HIP_VISIBLE_DEVICES: HSA_OVERRIDE_GFX_VERSION: HTTPS_PROXY: HTTP_PROXY: NO_PROXY: OLLAMA_CONTEXT_LENGTH:0 OLLAMA_DEBUG:INFO OLLAMA_DEBUG_LOG_REQUESTS:false OLLAMA_EDITOR: OLLAMA_FLASH_ATTENTION:false OLLAMA_GPU_OVERHEAD:0 OLLAMA_HOST:http://127.0.0.1:11434 OLLAMA_KEEP_ALIVE:5m0s OLLAMA_KV_CACHE_TYPE: OLLAMA_LLM_LIBRARY: OLLAMA_LOAD_TIMEOUT:5m0s OLLAMA_MAX_LOADED_MODELS:0 OLLAMA_MAX_QUEUE:512 OLLAMA_MODELS:C:\\Users\\Sohan Jala\\.ollama\\models OLLAMA_MULTIUSER_CACHE:false OLLAMA_NEW_ENGINE:false OLLAMA_NOHISTORY:false OLLAMA_NOPRUNE:false OLLAMA_NO_CLOUD:false OLLAMA_NUM_PARALLEL:1 OLLAMA_ORIGINS:[http://localhost https://localhost http://localhost:* https://localhost:* http://127.0.0.1 https://127.0.0.1 http://127.0.0.1:* https://127.0.0.1:* http://0.0.0.0 https://0.0.0.0 http://0.0.0.0:* https://0.0.0.0:* app://* file://* tauri://* vscode-webview://* vscode-file://*] OLLAMA_REMOTES:[ollama.com] OLLAMA_SCHED_SPREAD:false OLLAMA_VULKAN:false ROCR_VISIBLE_DEVICES:]"
+2026-03-31 18:41:16,163 time=2026-03-31T18:41:16.163+05:30 level=INFO source=routes.go:1742 msg="Ollama cloud disabled: false"
+2026-03-31 18:41:16,167 time=2026-03-31T18:41:16.166+05:30 level=INFO source=images.go:477 msg="total blobs: 14"
+2026-03-31 18:41:16,168 time=2026-03-31T18:41:16.168+05:30 level=INFO source=images.go:484 msg="total unused blobs removed: 0"
+2026-03-31 18:41:16,168 time=2026-03-31T18:41:16.168+05:30 level=INFO source=routes.go:1798 msg="Listening on 127.0.0.1:11434 (version 0.18.3)"
+2026-03-31 18:41:16,169 time=2026-03-31T18:41:16.169+05:30 level=INFO source=runner.go:67 msg="discovering available GPUs..."
+2026-03-31 18:41:16,177 time=2026-03-31T18:41:16.177+05:30 level=INFO source=runner.go:106 msg="experimental Vulkan support disabled.  To enable, set OLLAMA_VULKAN=1"
+2026-03-31 18:41:16,184 time=2026-03-31T18:41:16.184+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 57450"
+2026-03-31 18:41:16,398 time=2026-03-31T18:41:16.398+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 57462"
+2026-03-31 18:41:16,583 time=2026-03-31T18:41:16.583+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 57473"
+2026-03-31 18:41:16,801 time=2026-03-31T18:41:16.800+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 57484"
+2026-03-31 18:41:16,801 time=2026-03-31T18:41:16.801+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 57485"
+2026-03-31 18:41:17,063 time=2026-03-31T18:41:17.063+05:30 level=INFO source=types.go:42 msg="inference compute" id=GPU-e5221ff5-cbc6-11c4-e33b-f897cc77da53 filter_id="" library=CUDA compute=8.9 name=CUDA0 description="NVIDIA GeForce RTX 4070 Laptop GPU" libdirs=ollama,cuda_v13 driver=13.2 pci_id=0000:01:00.0 type=discrete total="8.0 GiB" available="7.5 GiB"
+2026-03-31 18:41:17,063 time=2026-03-31T18:41:17.063+05:30 level=INFO source=routes.go:1848 msg="vram-based default context" total_vram="8.0 GiB" default_num_ctx=4096
+2026-03-31 18:41:21,207 [GIN] 2026/03/31 - 18:41:21 | 200 |            0s |       127.0.0.1 | HEAD     "/"
+2026-03-31 18:41:21,214 [GIN] 2026/03/31 - 18:41:21 | 200 |      4.5345ms |       127.0.0.1 | GET      "/api/tags"
+2026-03-31 18:44:41,798 time=2026-03-31T18:44:41.798+05:30 level=INFO source=routes.go:1740 msg="server config" env="map[CUDA_VISIBLE_DEVICES: GGML_VK_VISIBLE_DEVICES: GPU_DEVICE_ORDINAL: HIP_VISIBLE_DEVICES: HSA_OVERRIDE_GFX_VERSION: HTTPS_PROXY: HTTP_PROXY: NO_PROXY: OLLAMA_CONTEXT_LENGTH:0 OLLAMA_DEBUG:INFO OLLAMA_DEBUG_LOG_REQUESTS:false OLLAMA_EDITOR: OLLAMA_FLASH_ATTENTION:false OLLAMA_GPU_OVERHEAD:0 OLLAMA_HOST:http://127.0.0.1:11434 OLLAMA_KEEP_ALIVE:5m0s OLLAMA_KV_CACHE_TYPE: OLLAMA_LLM_LIBRARY: OLLAMA_LOAD_TIMEOUT:5m0s OLLAMA_MAX_LOADED_MODELS:0 OLLAMA_MAX_QUEUE:512 OLLAMA_MODELS:C:\\Users\\Sohan Jala\\.ollama\\models OLLAMA_MULTIUSER_CACHE:false OLLAMA_NEW_ENGINE:false OLLAMA_NOHISTORY:false OLLAMA_NOPRUNE:false OLLAMA_NO_CLOUD:false OLLAMA_NUM_PARALLEL:1 OLLAMA_ORIGINS:[http://localhost https://localhost http://localhost:* https://localhost:* http://127.0.0.1 https://127.0.0.1 http://127.0.0.1:* https://127.0.0.1:* http://0.0.0.0 https://0.0.0.0 http://0.0.0.0:* https://0.0.0.0:* app://* file://* tauri://* vscode-webview://* vscode-file://*] OLLAMA_REMOTES:[ollama.com] OLLAMA_SCHED_SPREAD:false OLLAMA_VULKAN:false ROCR_VISIBLE_DEVICES:]"
+2026-03-31 18:44:41,799 time=2026-03-31T18:44:41.798+05:30 level=INFO source=routes.go:1742 msg="Ollama cloud disabled: false"
+2026-03-31 18:44:41,801 time=2026-03-31T18:44:41.801+05:30 level=INFO source=images.go:477 msg="total blobs: 14"
+2026-03-31 18:44:41,801 time=2026-03-31T18:44:41.801+05:30 level=INFO source=images.go:484 msg="total unused blobs removed: 0"
+2026-03-31 18:44:41,802 time=2026-03-31T18:44:41.802+05:30 level=INFO source=routes.go:1798 msg="Listening on 127.0.0.1:11434 (version 0.18.3)"
+2026-03-31 18:44:41,803 time=2026-03-31T18:44:41.803+05:30 level=INFO source=runner.go:67 msg="discovering available GPUs..."
+2026-03-31 18:44:41,818 time=2026-03-31T18:44:41.818+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 50717"
+2026-03-31 18:44:42,024 time=2026-03-31T18:44:42.024+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 50728"
+2026-03-31 18:44:42,242 time=2026-03-31T18:44:42.242+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 50740"
+2026-03-31 18:44:42,398 time=2026-03-31T18:44:42.398+05:30 level=INFO source=runner.go:106 msg="experimental Vulkan support disabled.  To enable, set OLLAMA_VULKAN=1"
+2026-03-31 18:44:42,399 time=2026-03-31T18:44:42.399+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 50753"
+2026-03-31 18:44:42,399 time=2026-03-31T18:44:42.399+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 50754"
+2026-03-31 18:44:42,706 time=2026-03-31T18:44:42.706+05:30 level=INFO source=types.go:42 msg="inference compute" id=GPU-e5221ff5-cbc6-11c4-e33b-f897cc77da53 filter_id="" library=CUDA compute=8.9 name=CUDA0 description="NVIDIA GeForce RTX 4070 Laptop GPU" libdirs=ollama,cuda_v13 driver=13.2 pci_id=0000:01:00.0 type=discrete total="8.0 GiB" available="7.5 GiB"
+2026-03-31 18:44:42,707 time=2026-03-31T18:44:42.706+05:30 level=INFO source=routes.go:1848 msg="vram-based default context" total_vram="8.0 GiB" default_num_ctx=4096
+2026-03-31 18:44:46,852 [GIN] 2026/03/31 - 18:44:46 | 200 |            0s |       127.0.0.1 | HEAD     "/"
+2026-03-31 18:44:46,861 [GIN] 2026/03/31 - 18:44:46 | 200 |      8.6108ms |       127.0.0.1 | GET      "/api/tags"
+2026-03-31 18:45:03,099 [GIN] 2026/03/31 - 18:45:03 | 200 |      2.9198ms |       127.0.0.1 | GET      "/api/tags"
+2026-03-31 18:45:05,139 [GIN] 2026/03/31 - 18:45:05 | 200 |      5.6627ms |       127.0.0.1 | GET      "/api/tags"
+2026-03-31 18:48:57,022 time=2026-03-31T18:48:57.022+05:30 level=INFO source=routes.go:1740 msg="server config" env="map[CUDA_VISIBLE_DEVICES: GGML_VK_VISIBLE_DEVICES: GPU_DEVICE_ORDINAL: HIP_VISIBLE_DEVICES: HSA_OVERRIDE_GFX_VERSION: HTTPS_PROXY: HTTP_PROXY: NO_PROXY: OLLAMA_CONTEXT_LENGTH:0 OLLAMA_DEBUG:INFO OLLAMA_DEBUG_LOG_REQUESTS:false OLLAMA_EDITOR: OLLAMA_FLASH_ATTENTION:false OLLAMA_GPU_OVERHEAD:0 OLLAMA_HOST:http://127.0.0.1:11434 OLLAMA_KEEP_ALIVE:5m0s OLLAMA_KV_CACHE_TYPE: OLLAMA_LLM_LIBRARY: OLLAMA_LOAD_TIMEOUT:5m0s OLLAMA_MAX_LOADED_MODELS:0 OLLAMA_MAX_QUEUE:512 OLLAMA_MODELS:C:\\Users\\Sohan Jala\\.ollama\\models OLLAMA_MULTIUSER_CACHE:false OLLAMA_NEW_ENGINE:false OLLAMA_NOHISTORY:false OLLAMA_NOPRUNE:false OLLAMA_NO_CLOUD:false OLLAMA_NUM_PARALLEL:1 OLLAMA_ORIGINS:[http://localhost https://localhost http://localhost:* https://localhost:* http://127.0.0.1 https://127.0.0.1 http://127.0.0.1:* https://127.0.0.1:* http://0.0.0.0 https://0.0.0.0 http://0.0.0.0:* https://0.0.0.0:* app://* file://* tauri://* vscode-webview://* vscode-file://*] OLLAMA_REMOTES:[ollama.com] OLLAMA_SCHED_SPREAD:false OLLAMA_VULKAN:false ROCR_VISIBLE_DEVICES:]"
+2026-03-31 18:48:57,023 time=2026-03-31T18:48:57.022+05:30 level=INFO source=routes.go:1742 msg="Ollama cloud disabled: false"
+2026-03-31 18:48:57,024 time=2026-03-31T18:48:57.024+05:30 level=INFO source=images.go:477 msg="total blobs: 14"
+2026-03-31 18:48:57,027 time=2026-03-31T18:48:57.025+05:30 level=INFO source=images.go:484 msg="total unused blobs removed: 0"
+2026-03-31 18:48:57,027 time=2026-03-31T18:48:57.025+05:30 level=INFO source=routes.go:1798 msg="Listening on 127.0.0.1:11434 (version 0.18.3)"
+2026-03-31 18:48:57,028 time=2026-03-31T18:48:57.026+05:30 level=INFO source=runner.go:67 msg="discovering available GPUs..."
+2026-03-31 18:48:57,043 time=2026-03-31T18:48:57.043+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 54546"
+2026-03-31 18:48:57,272 time=2026-03-31T18:48:57.272+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 54558"
+2026-03-31 18:48:57,471 time=2026-03-31T18:48:57.471+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 54570"
+2026-03-31 18:48:57,620 time=2026-03-31T18:48:57.620+05:30 level=INFO source=runner.go:106 msg="experimental Vulkan support disabled.  To enable, set OLLAMA_VULKAN=1"
+2026-03-31 18:48:57,622 time=2026-03-31T18:48:57.622+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 54583"
+2026-03-31 18:48:57,622 time=2026-03-31T18:48:57.622+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 54582"
+2026-03-31 18:48:57,889 time=2026-03-31T18:48:57.889+05:30 level=INFO source=types.go:42 msg="inference compute" id=GPU-e5221ff5-cbc6-11c4-e33b-f897cc77da53 filter_id="" library=CUDA compute=8.9 name=CUDA0 description="NVIDIA GeForce RTX 4070 Laptop GPU" libdirs=ollama,cuda_v13 driver=13.2 pci_id=0000:01:00.0 type=discrete total="8.0 GiB" available="7.5 GiB"
+2026-03-31 18:48:57,889 time=2026-03-31T18:48:57.889+05:30 level=INFO source=routes.go:1848 msg="vram-based default context" total_vram="8.0 GiB" default_num_ctx=4096
+2026-03-31 18:49:02,090 [GIN] 2026/03/31 - 18:49:02 | 200 |            0s |       127.0.0.1 | HEAD     "/"
+2026-03-31 18:49:02,093 [GIN] 2026/03/31 - 18:49:02 | 200 |      2.0411ms |       127.0.0.1 | GET      "/api/tags"
+2026-03-31 18:49:20,146 [GIN] 2026/03/31 - 18:49:20 | 200 |       1.699ms |       127.0.0.1 | GET      "/api/tags"
+2026-03-31 18:49:22,159 [GIN] 2026/03/31 - 18:49:22 | 200 |      1.0478ms |       127.0.0.1 | GET      "/api/tags"
+2026-03-31 18:51:25,213 time=2026-03-31T18:51:25.212+05:30 level=INFO source=routes.go:1740 msg="server config" env="map[CUDA_VISIBLE_DEVICES: GGML_VK_VISIBLE_DEVICES: GPU_DEVICE_ORDINAL: HIP_VISIBLE_DEVICES: HSA_OVERRIDE_GFX_VERSION: HTTPS_PROXY: HTTP_PROXY: NO_PROXY: OLLAMA_CONTEXT_LENGTH:0 OLLAMA_DEBUG:INFO OLLAMA_DEBUG_LOG_REQUESTS:false OLLAMA_EDITOR: OLLAMA_FLASH_ATTENTION:false OLLAMA_GPU_OVERHEAD:0 OLLAMA_HOST:http://127.0.0.1:11434 OLLAMA_KEEP_ALIVE:5m0s OLLAMA_KV_CACHE_TYPE: OLLAMA_LLM_LIBRARY: OLLAMA_LOAD_TIMEOUT:5m0s OLLAMA_MAX_LOADED_MODELS:0 OLLAMA_MAX_QUEUE:512 OLLAMA_MODELS:C:\\Users\\Sohan Jala\\.ollama\\models OLLAMA_MULTIUSER_CACHE:false OLLAMA_NEW_ENGINE:false OLLAMA_NOHISTORY:false OLLAMA_NOPRUNE:false OLLAMA_NO_CLOUD:false OLLAMA_NUM_PARALLEL:1 OLLAMA_ORIGINS:[http://localhost https://localhost http://localhost:* https://localhost:* http://127.0.0.1 https://127.0.0.1 http://127.0.0.1:* https://127.0.0.1:* http://0.0.0.0 https://0.0.0.0 http://0.0.0.0:* https://0.0.0.0:* app://* file://* tauri://* vscode-webview://* vscode-file://*] OLLAMA_REMOTES:[ollama.com] OLLAMA_SCHED_SPREAD:false OLLAMA_VULKAN:false ROCR_VISIBLE_DEVICES:]"
+2026-03-31 18:51:25,213 time=2026-03-31T18:51:25.213+05:30 level=INFO source=routes.go:1742 msg="Ollama cloud disabled: false"
+2026-03-31 18:51:25,215 time=2026-03-31T18:51:25.215+05:30 level=INFO source=images.go:477 msg="total blobs: 14"
+2026-03-31 18:51:25,218 time=2026-03-31T18:51:25.218+05:30 level=INFO source=images.go:484 msg="total unused blobs removed: 0"
+2026-03-31 18:51:25,219 time=2026-03-31T18:51:25.218+05:30 level=INFO source=routes.go:1798 msg="Listening on 127.0.0.1:11434 (version 0.18.3)"
+2026-03-31 18:51:25,219 time=2026-03-31T18:51:25.219+05:30 level=INFO source=runner.go:67 msg="discovering available GPUs..."
+2026-03-31 18:51:25,235 time=2026-03-31T18:51:25.235+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 51137"
+2026-03-31 18:51:25,453 time=2026-03-31T18:51:25.453+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 51149"
+2026-03-31 18:51:25,654 time=2026-03-31T18:51:25.654+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 51160"
+2026-03-31 18:51:25,788 time=2026-03-31T18:51:25.788+05:30 level=INFO source=runner.go:106 msg="experimental Vulkan support disabled.  To enable, set OLLAMA_VULKAN=1"
+2026-03-31 18:51:25,789 time=2026-03-31T18:51:25.789+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 51173"
+2026-03-31 18:51:25,789 time=2026-03-31T18:51:25.789+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 51172"
+2026-03-31 18:51:26,026 time=2026-03-31T18:51:26.026+05:30 level=INFO source=types.go:42 msg="inference compute" id=GPU-e5221ff5-cbc6-11c4-e33b-f897cc77da53 filter_id="" library=CUDA compute=8.9 name=CUDA0 description="NVIDIA GeForce RTX 4070 Laptop GPU" libdirs=ollama,cuda_v13 driver=13.2 pci_id=0000:01:00.0 type=discrete total="8.0 GiB" available="7.5 GiB"
+2026-03-31 18:51:26,026 time=2026-03-31T18:51:26.026+05:30 level=INFO source=routes.go:1848 msg="vram-based default context" total_vram="8.0 GiB" default_num_ctx=4096
+2026-03-31 18:51:30,223 [GIN] 2026/03/31 - 18:51:30 | 200 |            0s |       127.0.0.1 | HEAD     "/"
+2026-03-31 18:51:30,225 [GIN] 2026/03/31 - 18:51:30 | 200 |      1.0854ms |       127.0.0.1 | GET      "/api/tags"
+2026-03-31 18:51:41,166 [GIN] 2026/03/31 - 18:51:41 | 200 |      5.5136ms |       127.0.0.1 | GET      "/api/tags"
+2026-03-31 18:51:43,215 [GIN] 2026/03/31 - 18:51:43 | 200 |     26.4331ms |       127.0.0.1 | GET      "/api/tags"
+2026-03-31 18:51:45,077 time=2026-03-31T18:51:45.076+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 50499"
+2026-03-31 18:51:45,311 time=2026-03-31T18:51:45.311+05:30 level=INFO source=cpu_windows.go:148 msg=packages count=1
+2026-03-31 18:51:45,311 time=2026-03-31T18:51:45.311+05:30 level=INFO source=cpu_windows.go:164 msg="efficiency cores detected" maxEfficiencyClass=1
+2026-03-31 18:51:45,311 time=2026-03-31T18:51:45.311+05:30 level=INFO source=cpu_windows.go:195 msg="" package=0 cores=16 efficiency=8 threads=24
+2026-03-31 18:51:45,491 llama_model_loader: loaded meta data with 22 key-value pairs and 291 tensors from C:\Users\Sohan Jala\.ollama\models\blobs\sha256-6a0746a1ec1aef3e7ec53868f220ff6e389f6f8ef87a01d77c96807de94ca2aa (version GGUF V3 (latest))
+2026-03-31 18:51:45,492 llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+2026-03-31 18:51:45,492 llama_model_loader: - kv   0:                       general.architecture str              = llama
+2026-03-31 18:51:45,492 llama_model_loader: - kv   1:                               general.name str              = Meta-Llama-3-8B-Instruct
+2026-03-31 18:51:45,492 llama_model_loader: - kv   2:                          llama.block_count u32              = 32
+2026-03-31 18:51:45,492 llama_model_loader: - kv   3:                       llama.context_length u32              = 8192
+2026-03-31 18:51:45,493 llama_model_loader: - kv   4:                     llama.embedding_length u32              = 4096
+2026-03-31 18:51:45,493 llama_model_loader: - kv   5:                  llama.feed_forward_length u32              = 14336
+2026-03-31 18:51:45,493 llama_model_loader: - kv   6:                 llama.attention.head_count u32              = 32
+2026-03-31 18:51:45,494 llama_model_loader: - kv   7:              llama.attention.head_count_kv u32              = 8
+2026-03-31 18:51:45,494 llama_model_loader: - kv   8:                       llama.rope.freq_base f32              = 500000.000000
+2026-03-31 18:51:45,494 llama_model_loader: - kv   9:     llama.attention.layer_norm_rms_epsilon f32              = 0.000010
+2026-03-31 18:51:45,494 llama_model_loader: - kv  10:                          general.file_type u32              = 2
+2026-03-31 18:51:45,494 llama_model_loader: - kv  11:                           llama.vocab_size u32              = 128256
+2026-03-31 18:51:45,495 llama_model_loader: - kv  12:                 llama.rope.dimension_count u32              = 128
+2026-03-31 18:51:45,495 llama_model_loader: - kv  13:                       tokenizer.ggml.model str              = gpt2
+2026-03-31 18:51:45,495 llama_model_loader: - kv  14:                         tokenizer.ggml.pre str              = llama-bpe
+2026-03-31 18:51:45,561 llama_model_loader: - kv  15:                      tokenizer.ggml.tokens arr[str,128256]  = ["!", "\"", "#", "$", "%", "&", "'", ...
+2026-03-31 18:51:45,586 llama_model_loader: - kv  16:                  tokenizer.ggml.token_type arr[i32,128256]  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+2026-03-31 18:51:45,711 llama_model_loader: - kv  17:                      tokenizer.ggml.merges arr[str,280147]  = ["Ġ Ġ", "Ġ ĠĠĠ", "ĠĠ ĠĠ", "...
+2026-03-31 18:51:45,712 llama_model_loader: - kv  18:                tokenizer.ggml.bos_token_id u32              = 128000
+2026-03-31 18:51:45,713 llama_model_loader: - kv  19:                tokenizer.ggml.eos_token_id u32              = 128009
+2026-03-31 18:51:45,713 llama_model_loader: - kv  20:                    tokenizer.chat_template str              = {% set loop_messages = messages %}{% ...
+2026-03-31 18:51:45,713 llama_model_loader: - kv  21:               general.quantization_version u32              = 2
+2026-03-31 18:51:45,714 llama_model_loader: - type  f32:   65 tensors
+2026-03-31 18:51:45,714 llama_model_loader: - type q4_0:  225 tensors
+2026-03-31 18:51:45,714 llama_model_loader: - type q6_K:    1 tensors
+2026-03-31 18:51:45,715 print_info: file format = GGUF V3 (latest)
+2026-03-31 18:51:45,715 print_info: file type   = Q4_0
+2026-03-31 18:51:45,715 print_info: file size   = 4.33 GiB (4.64 BPW)
+2026-03-31 18:51:46,066 load: printing all EOG tokens:
+2026-03-31 18:51:46,066 load:   - 128001 ('<|end_of_text|>')
+2026-03-31 18:51:46,067 load:   - 128009 ('<|eot_id|>')
+2026-03-31 18:51:46,067 load: special tokens cache size = 256
+2026-03-31 18:51:46,161 load: token to piece cache size = 0.8000 MB
+2026-03-31 18:51:46,163 print_info: arch             = llama
+2026-03-31 18:51:46,163 print_info: vocab_only       = 1
+2026-03-31 18:51:46,164 print_info: no_alloc         = 0
+2026-03-31 18:51:46,164 print_info: model type       = ?B
+2026-03-31 18:51:46,165 print_info: model params     = 8.03 B
+2026-03-31 18:51:46,165 print_info: general.name     = Meta-Llama-3-8B-Instruct
+2026-03-31 18:51:46,165 print_info: vocab type       = BPE
+2026-03-31 18:51:46,166 print_info: n_vocab          = 128256
+2026-03-31 18:51:46,166 print_info: n_merges         = 280147
+2026-03-31 18:51:46,167 print_info: BOS token        = 128000 '<|begin_of_text|>'
+2026-03-31 18:51:46,167 print_info: EOS token        = 128009 '<|eot_id|>'
+2026-03-31 18:51:46,168 print_info: EOT token        = 128001 '<|end_of_text|>'
+2026-03-31 18:51:46,168 print_info: LF token         = 198 'Ċ'
+2026-03-31 18:51:46,168 print_info: EOG token        = 128001 '<|end_of_text|>'
+2026-03-31 18:51:46,169 print_info: EOG token        = 128009 '<|eot_id|>'
+2026-03-31 18:51:46,169 print_info: max token length = 256
+2026-03-31 18:51:46,170 llama_model_load: vocab only - skipping tensors
+2026-03-31 18:51:46,172 time=2026-03-31T18:51:46.172+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --model C:\\Users\\Sohan Jala\\.ollama\\models\\blobs\\sha256-6a0746a1ec1aef3e7ec53868f220ff6e389f6f8ef87a01d77c96807de94ca2aa --port 50512"
+2026-03-31 18:51:46,186 time=2026-03-31T18:51:46.186+05:30 level=INFO source=sched.go:484 msg="system memory" total="15.7 GiB" free="3.4 GiB" free_swap="19.1 GiB"
+2026-03-31 18:51:46,186 time=2026-03-31T18:51:46.186+05:30 level=INFO source=sched.go:491 msg="gpu memory" id=GPU-e5221ff5-cbc6-11c4-e33b-f897cc77da53 library=CUDA available="7.1 GiB" free="7.5 GiB" minimum="457.0 MiB" overhead="0 B"
+2026-03-31 18:51:46,188 time=2026-03-31T18:51:46.186+05:30 level=INFO source=server.go:499 msg="loading model" "model layers"=33 requested=-1
+2026-03-31 18:51:46,188 time=2026-03-31T18:51:46.188+05:30 level=INFO source=device.go:240 msg="model weights" device=CUDA0 size="4.1 GiB"
+2026-03-31 18:51:46,191 time=2026-03-31T18:51:46.188+05:30 level=INFO source=device.go:251 msg="kv cache" device=CUDA0 size="512.0 MiB"
+2026-03-31 18:51:46,192 time=2026-03-31T18:51:46.188+05:30 level=INFO source=device.go:262 msg="compute graph" device=CUDA0 size="296.0 MiB"
+2026-03-31 18:51:46,193 time=2026-03-31T18:51:46.188+05:30 level=INFO source=device.go:272 msg="total memory" size="4.8 GiB"
+2026-03-31 18:51:46,301 time=2026-03-31T18:51:46.300+05:30 level=INFO source=runner.go:965 msg="starting go runner"
+2026-03-31 18:51:46,313 load_backend: loaded CPU backend from C:\Users\Sohan Jala\AppData\Local\Programs\Ollama\lib\ollama\ggml-cpu-alderlake.dll
+2026-03-31 18:51:46,361 ggml_cuda_init: GGML_CUDA_FORCE_MMQ:    no
+2026-03-31 18:51:46,361 ggml_cuda_init: GGML_CUDA_FORCE_CUBLAS: no
+2026-03-31 18:51:46,361 ggml_cuda_init: found 1 CUDA devices:
+2026-03-31 18:51:46,361 Device 0: NVIDIA GeForce RTX 4070 Laptop GPU, compute capability 8.9, VMM: yes, ID: GPU-e5221ff5-cbc6-11c4-e33b-f897cc77da53
+2026-03-31 18:51:46,361 load_backend: loaded CUDA backend from C:\Users\Sohan Jala\AppData\Local\Programs\Ollama\lib\ollama\cuda_v13\ggml-cuda.dll
+2026-03-31 18:51:46,361 time=2026-03-31T18:51:46.361+05:30 level=INFO source=ggml.go:104 msg=system CPU.0.SSE3=1 CPU.0.SSSE3=1 CPU.0.AVX=1 CPU.0.AVX_VNNI=1 CPU.0.AVX2=1 CPU.0.F16C=1 CPU.0.FMA=1 CPU.0.BMI2=1 CPU.0.LLAMAFILE=1 CPU.1.LLAMAFILE=1 CUDA.0.ARCHS=750,800,860,870,890,900,1000,1030,1100,1200,1210 CUDA.0.USE_GRAPHS=1 CUDA.0.PEER_MAX_BATCH_SIZE=128 compiler=cgo(clang)
+2026-03-31 18:51:46,362 time=2026-03-31T18:51:46.362+05:30 level=INFO source=runner.go:1001 msg="Server listening on 127.0.0.1:50512"
+2026-03-31 18:51:46,366 time=2026-03-31T18:51:46.366+05:30 level=INFO source=server.go:1352 msg="waiting for llama runner to start responding"
+2026-03-31 18:51:46,367 time=2026-03-31T18:51:46.367+05:30 level=INFO source=server.go:1386 msg="waiting for server to become available" status="llm server loading model"
+2026-03-31 18:51:46,367 time=2026-03-31T18:51:46.366+05:30 level=INFO source=runner.go:895 msg=load request="{Operation:commit LoraPath:[] Parallel:1 BatchSize:512 FlashAttention:Auto KvSize:4096 KvCacheType: NumThreads:8 GPULayers:33[ID:GPU-e5221ff5-cbc6-11c4-e33b-f897cc77da53 Layers:33(0..32)] MultiUserCache:false ProjectorPath: MainGPU:0 UseMmap:false}"
+2026-03-31 18:51:46,388 ggml_backend_cuda_device_get_memory device GPU-e5221ff5-cbc6-11c4-e33b-f897cc77da53 utilizing NVML memory reporting free: 8097701888 total: 8585740288
+2026-03-31 18:51:46,389 llama_model_load_from_file_impl: using device CUDA0 (NVIDIA GeForce RTX 4070 Laptop GPU) (0000:01:00.0) - 7722 MiB free
+2026-03-31 18:51:46,421 llama_model_loader: loaded meta data with 22 key-value pairs and 291 tensors from C:\Users\Sohan Jala\.ollama\models\blobs\sha256-6a0746a1ec1aef3e7ec53868f220ff6e389f6f8ef87a01d77c96807de94ca2aa (version GGUF V3 (latest))
+2026-03-31 18:51:46,422 llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+2026-03-31 18:51:46,423 llama_model_loader: - kv   0:                       general.architecture str              = llama
+2026-03-31 18:51:46,423 llama_model_loader: - kv   1:                               general.name str              = Meta-Llama-3-8B-Instruct
+2026-03-31 18:51:46,423 llama_model_loader: - kv   2:                          llama.block_count u32              = 32
+2026-03-31 18:51:46,424 llama_model_loader: - kv   3:                       llama.context_length u32              = 8192
+2026-03-31 18:51:46,426 llama_model_loader: - kv   4:                     llama.embedding_length u32              = 4096
+2026-03-31 18:51:46,427 llama_model_loader: - kv   5:                  llama.feed_forward_length u32              = 14336
+2026-03-31 18:51:46,427 llama_model_loader: - kv   6:                 llama.attention.head_count u32              = 32
+2026-03-31 18:51:46,428 llama_model_loader: - kv   7:              llama.attention.head_count_kv u32              = 8
+2026-03-31 18:51:46,429 llama_model_loader: - kv   8:                       llama.rope.freq_base f32              = 500000.000000
+2026-03-31 18:51:46,429 llama_model_loader: - kv   9:     llama.attention.layer_norm_rms_epsilon f32              = 0.000010
+2026-03-31 18:51:46,430 llama_model_loader: - kv  10:                          general.file_type u32              = 2
+2026-03-31 18:51:46,431 llama_model_loader: - kv  11:                           llama.vocab_size u32              = 128256
+2026-03-31 18:51:46,431 llama_model_loader: - kv  12:                 llama.rope.dimension_count u32              = 128
+2026-03-31 18:51:46,432 llama_model_loader: - kv  13:                       tokenizer.ggml.model str              = gpt2
+2026-03-31 18:51:46,433 llama_model_loader: - kv  14:                         tokenizer.ggml.pre str              = llama-bpe
+2026-03-31 18:51:46,434 llama_model_loader: - kv  15:                      tokenizer.ggml.tokens arr[str,128256]  = ["!", "\"", "#", "$", "%", "&", "'", ...
+2026-03-31 18:51:46,437 llama_model_loader: - kv  16:                  tokenizer.ggml.token_type arr[i32,128256]  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+2026-03-31 18:51:46,463 llama_model_loader: - kv  17:                      tokenizer.ggml.merges arr[str,280147]  = ["Ġ Ġ", "Ġ ĠĠĠ", "ĠĠ ĠĠ", "...
+2026-03-31 18:51:46,463 llama_model_loader: - kv  18:                tokenizer.ggml.bos_token_id u32              = 128000
+2026-03-31 18:51:46,464 llama_model_loader: - kv  19:                tokenizer.ggml.eos_token_id u32              = 128009
+2026-03-31 18:51:46,464 llama_model_loader: - kv  20:                    tokenizer.chat_template str              = {% set loop_messages = messages %}{% ...
+2026-03-31 18:51:46,464 llama_model_loader: - kv  21:               general.quantization_version u32              = 2
+2026-03-31 18:51:46,466 llama_model_loader: - type  f32:   65 tensors
+2026-03-31 18:51:46,466 llama_model_loader: - type q4_0:  225 tensors
+2026-03-31 18:51:46,466 llama_model_loader: - type q6_K:    1 tensors
+2026-03-31 18:51:46,468 print_info: file format = GGUF V3 (latest)
+2026-03-31 18:51:46,468 print_info: file type   = Q4_0
+2026-03-31 18:51:46,470 print_info: file size   = 4.33 GiB (4.64 BPW)
+2026-03-31 18:51:46,544 load: printing all EOG tokens:
+2026-03-31 18:51:46,545 load:   - 128001 ('<|end_of_text|>')
+2026-03-31 18:51:46,546 load:   - 128009 ('<|eot_id|>')
+2026-03-31 18:51:46,547 load: special tokens cache size = 256
+2026-03-31 18:51:46,565 load: token to piece cache size = 0.8000 MB
+2026-03-31 18:51:46,566 print_info: arch             = llama
+2026-03-31 18:51:46,566 print_info: vocab_only       = 0
+2026-03-31 18:51:46,566 print_info: no_alloc         = 0
+2026-03-31 18:51:46,566 print_info: n_ctx_train      = 8192
+2026-03-31 18:51:46,566 print_info: n_embd           = 4096
+2026-03-31 18:51:46,567 print_info: n_embd_inp       = 4096
+2026-03-31 18:51:46,567 print_info: n_layer          = 32
+2026-03-31 18:51:46,567 print_info: n_head           = 32
+2026-03-31 18:51:46,567 print_info: n_head_kv        = 8
+2026-03-31 18:51:46,567 print_info: n_rot            = 128
+2026-03-31 18:51:46,568 print_info: n_swa            = 0
+2026-03-31 18:51:46,568 print_info: is_swa_any       = 0
+2026-03-31 18:51:46,568 print_info: n_embd_head_k    = 128
+2026-03-31 18:51:46,568 print_info: n_embd_head_v    = 128
+2026-03-31 18:51:46,569 print_info: n_gqa            = 4
+2026-03-31 18:51:46,569 print_info: n_embd_k_gqa     = 1024
+2026-03-31 18:51:46,569 print_info: n_embd_v_gqa     = 1024
+2026-03-31 18:51:46,569 print_info: f_norm_eps       = 0.0e+00
+2026-03-31 18:51:46,569 print_info: f_norm_rms_eps   = 1.0e-05
+2026-03-31 18:51:46,569 print_info: f_clamp_kqv      = 0.0e+00
+2026-03-31 18:51:46,569 print_info: f_max_alibi_bias = 0.0e+00
+2026-03-31 18:51:46,569 print_info: f_logit_scale    = 0.0e+00
+2026-03-31 18:51:46,569 print_info: f_attn_scale     = 0.0e+00
+2026-03-31 18:51:46,569 print_info: n_ff             = 14336
+2026-03-31 18:51:46,569 print_info: n_expert         = 0
+2026-03-31 18:51:46,569 print_info: n_expert_used    = 0
+2026-03-31 18:51:46,569 print_info: n_expert_groups  = 0
+2026-03-31 18:51:46,570 print_info: n_group_used     = 0
+2026-03-31 18:51:46,570 print_info: causal attn      = 1
+2026-03-31 18:51:46,570 print_info: pooling type     = 0
+2026-03-31 18:51:46,570 print_info: rope type        = 0
+2026-03-31 18:51:46,570 print_info: rope scaling     = linear
+2026-03-31 18:51:46,570 print_info: freq_base_train  = 500000.0
+2026-03-31 18:51:46,570 print_info: freq_scale_train = 1
+2026-03-31 18:51:46,570 print_info: n_ctx_orig_yarn  = 8192
+2026-03-31 18:51:46,570 print_info: rope_yarn_log_mul= 0.0000
+2026-03-31 18:51:46,570 print_info: rope_finetuned   = unknown
+2026-03-31 18:51:46,570 print_info: model type       = 8B
+2026-03-31 18:51:46,571 print_info: model params     = 8.03 B
+2026-03-31 18:51:46,571 print_info: general.name     = Meta-Llama-3-8B-Instruct
+2026-03-31 18:51:46,571 print_info: vocab type       = BPE
+2026-03-31 18:51:46,571 print_info: n_vocab          = 128256
+2026-03-31 18:51:46,571 print_info: n_merges         = 280147
+2026-03-31 18:51:46,571 print_info: BOS token        = 128000 '<|begin_of_text|>'
+2026-03-31 18:51:46,571 print_info: EOS token        = 128009 '<|eot_id|>'
+2026-03-31 18:51:46,571 print_info: EOT token        = 128001 '<|end_of_text|>'
+2026-03-31 18:51:46,571 print_info: LF token         = 198 'Ċ'
+2026-03-31 18:51:46,571 print_info: EOG token        = 128001 '<|end_of_text|>'
+2026-03-31 18:51:46,571 print_info: EOG token        = 128009 '<|eot_id|>'
+2026-03-31 18:51:46,571 print_info: max token length = 256
+2026-03-31 18:51:46,571 load_tensors: loading model tensors, this can take a while... (mmap = false)
+2026-03-31 18:51:46,610 load_tensors: offloading 32 repeating layers to GPU
+2026-03-31 18:51:46,610 load_tensors: offloading output layer to GPU
+2026-03-31 18:51:46,610 load_tensors: offloaded 33/33 layers to GPU
+2026-03-31 18:51:46,610 load_tensors:        CUDA0 model buffer size =  4155.99 MiB
+2026-03-31 18:51:46,610 load_tensors:    CUDA_Host model buffer size =   281.81 MiB
+2026-03-31 18:51:51,901 llama_context: constructing llama_context
+2026-03-31 18:51:51,903 llama_context: n_seq_max     = 1
+2026-03-31 18:51:51,904 llama_context: n_ctx         = 4096
+2026-03-31 18:51:51,906 llama_context: n_ctx_seq     = 4096
+2026-03-31 18:51:51,907 llama_context: n_batch       = 512
+2026-03-31 18:51:51,909 llama_context: n_ubatch      = 512
+2026-03-31 18:51:51,911 llama_context: causal_attn   = 1
+2026-03-31 18:51:51,912 llama_context: flash_attn    = auto
+2026-03-31 18:51:51,913 llama_context: kv_unified    = false
+2026-03-31 18:51:51,915 llama_context: freq_base     = 500000.0
+2026-03-31 18:51:51,916 llama_context: freq_scale    = 1
+2026-03-31 18:51:51,917 llama_context: n_ctx_seq (4096) < n_ctx_train (8192) -- the full capacity of the model will not be utilized
+2026-03-31 18:51:51,920 llama_context:  CUDA_Host  output buffer size =     0.50 MiB
+2026-03-31 18:51:51,921 llama_kv_cache:      CUDA0 KV buffer size =   512.00 MiB
+2026-03-31 18:51:51,935 llama_kv_cache: size =  512.00 MiB (  4096 cells,  32 layers,  1/1 seqs), K (f16):  256.00 MiB, V (f16):  256.00 MiB
+2026-03-31 18:51:51,945 llama_context: Flash Attention was auto, set to enabled
+2026-03-31 18:51:53,276 llama_context:      CUDA0 compute buffer size =   258.50 MiB
+2026-03-31 18:51:53,277 llama_context:  CUDA_Host compute buffer size =    16.01 MiB
+2026-03-31 18:51:53,278 llama_context: graph nodes  = 999
+2026-03-31 18:51:53,278 llama_context: graph splits = 2
+2026-03-31 18:51:53,438 time=2026-03-31T18:51:53.438+05:30 level=INFO source=server.go:1390 msg="llama runner started in 7.25 seconds"
+2026-03-31 18:51:53,444 time=2026-03-31T18:51:53.439+05:30 level=INFO source=sched.go:561 msg="loaded runners" count=1
+2026-03-31 18:51:53,461 time=2026-03-31T18:51:53.439+05:30 level=INFO source=server.go:1352 msg="waiting for llama runner to start responding"
+2026-03-31 18:51:53,464 time=2026-03-31T18:51:53.463+05:30 level=INFO source=server.go:1390 msg="llama runner started in 7.28 seconds"
+2026-03-31 18:51:54,130 [GIN] 2026/03/31 - 18:51:54 | 200 |    9.5136439s |       127.0.0.1 | POST     "/api/generate"
+2026-03-31 18:52:06,431 [GIN] 2026/03/31 - 18:52:06 | 200 |   10.2654949s |       127.0.0.1 | POST     "/api/generate"
+2026-03-31 18:57:06,448 time=2026-03-31T18:57:06.447+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 64157"
+2026-03-31 18:57:06,968 time=2026-03-31T18:57:06.968+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 64172"
+2026-03-31 18:58:22,886 time=2026-03-31T18:58:22.885+05:30 level=INFO source=routes.go:1740 msg="server config" env="map[CUDA_VISIBLE_DEVICES: GGML_VK_VISIBLE_DEVICES: GPU_DEVICE_ORDINAL: HIP_VISIBLE_DEVICES: HSA_OVERRIDE_GFX_VERSION: HTTPS_PROXY: HTTP_PROXY: NO_PROXY: OLLAMA_CONTEXT_LENGTH:0 OLLAMA_DEBUG:INFO OLLAMA_DEBUG_LOG_REQUESTS:false OLLAMA_EDITOR: OLLAMA_FLASH_ATTENTION:false OLLAMA_GPU_OVERHEAD:0 OLLAMA_HOST:http://127.0.0.1:11434 OLLAMA_KEEP_ALIVE:5m0s OLLAMA_KV_CACHE_TYPE: OLLAMA_LLM_LIBRARY: OLLAMA_LOAD_TIMEOUT:5m0s OLLAMA_MAX_LOADED_MODELS:0 OLLAMA_MAX_QUEUE:512 OLLAMA_MODELS:C:\\Users\\Sohan Jala\\.ollama\\models OLLAMA_MULTIUSER_CACHE:false OLLAMA_NEW_ENGINE:false OLLAMA_NOHISTORY:false OLLAMA_NOPRUNE:false OLLAMA_NO_CLOUD:false OLLAMA_NUM_PARALLEL:1 OLLAMA_ORIGINS:[http://localhost https://localhost http://localhost:* https://localhost:* http://127.0.0.1 https://127.0.0.1 http://127.0.0.1:* https://127.0.0.1:* http://0.0.0.0 https://0.0.0.0 http://0.0.0.0:* https://0.0.0.0:* app://* file://* tauri://* vscode-webview://* vscode-file://*] OLLAMA_REMOTES:[ollama.com] OLLAMA_SCHED_SPREAD:false OLLAMA_VULKAN:false ROCR_VISIBLE_DEVICES:]"
+2026-03-31 18:58:22,886 time=2026-03-31T18:58:22.886+05:30 level=INFO source=routes.go:1742 msg="Ollama cloud disabled: false"
+2026-03-31 18:58:22,894 time=2026-03-31T18:58:22.894+05:30 level=INFO source=images.go:477 msg="total blobs: 14"
+2026-03-31 18:58:22,894 time=2026-03-31T18:58:22.894+05:30 level=INFO source=images.go:484 msg="total unused blobs removed: 0"
+2026-03-31 18:58:22,896 time=2026-03-31T18:58:22.896+05:30 level=INFO source=routes.go:1798 msg="Listening on 127.0.0.1:11434 (version 0.18.3)"
+2026-03-31 18:58:22,897 time=2026-03-31T18:58:22.897+05:30 level=INFO source=runner.go:67 msg="discovering available GPUs..."
+2026-03-31 18:58:22,913 time=2026-03-31T18:58:22.913+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 56233"
+2026-03-31 18:58:23,773 time=2026-03-31T18:58:23.773+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 60582"
+2026-03-31 18:58:23,976 time=2026-03-31T18:58:23.976+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 60594"
+2026-03-31 18:58:24,276 time=2026-03-31T18:58:24.276+05:30 level=INFO source=runner.go:106 msg="experimental Vulkan support disabled.  To enable, set OLLAMA_VULKAN=1"
+2026-03-31 18:58:24,277 time=2026-03-31T18:58:24.277+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 60606"
+2026-03-31 18:58:24,277 time=2026-03-31T18:58:24.277+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 60607"
+2026-03-31 18:58:24,597 time=2026-03-31T18:58:24.597+05:30 level=INFO source=types.go:42 msg="inference compute" id=GPU-e5221ff5-cbc6-11c4-e33b-f897cc77da53 filter_id="" library=CUDA compute=8.9 name=CUDA0 description="NVIDIA GeForce RTX 4070 Laptop GPU" libdirs=ollama,cuda_v13 driver=13.2 pci_id=0000:01:00.0 type=discrete total="8.0 GiB" available="7.5 GiB"
+2026-03-31 18:58:24,598 time=2026-03-31T18:58:24.597+05:30 level=INFO source=routes.go:1848 msg="vram-based default context" total_vram="8.0 GiB" default_num_ctx=4096
+2026-03-31 18:58:27,901 [GIN] 2026/03/31 - 18:58:27 | 200 |            0s |       127.0.0.1 | HEAD     "/"
+2026-03-31 18:58:27,904 [GIN] 2026/03/31 - 18:58:27 | 200 |      2.1439ms |       127.0.0.1 | GET      "/api/tags"
+2026-03-31 18:58:39,358 [GIN] 2026/03/31 - 18:58:39 | 200 |     24.0357ms |       127.0.0.1 | GET      "/api/tags"
+2026-03-31 18:58:41,398 [GIN] 2026/03/31 - 18:58:41 | 200 |      3.5515ms |       127.0.0.1 | GET      "/api/tags"
+2026-03-31 18:58:57,199 time=2026-03-31T18:58:57.198+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 55721"
+2026-03-31 18:58:57,440 time=2026-03-31T18:58:57.440+05:30 level=INFO source=cpu_windows.go:148 msg=packages count=1
+2026-03-31 18:58:57,444 time=2026-03-31T18:58:57.441+05:30 level=INFO source=cpu_windows.go:164 msg="efficiency cores detected" maxEfficiencyClass=1
+2026-03-31 18:58:57,444 time=2026-03-31T18:58:57.441+05:30 level=INFO source=cpu_windows.go:195 msg="" package=0 cores=16 efficiency=8 threads=24
+2026-03-31 18:58:57,703 llama_model_loader: loaded meta data with 22 key-value pairs and 291 tensors from C:\Users\Sohan Jala\.ollama\models\blobs\sha256-6a0746a1ec1aef3e7ec53868f220ff6e389f6f8ef87a01d77c96807de94ca2aa (version GGUF V3 (latest))
+2026-03-31 18:58:57,703 llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+2026-03-31 18:58:57,703 llama_model_loader: - kv   0:                       general.architecture str              = llama
+2026-03-31 18:58:57,703 llama_model_loader: - kv   1:                               general.name str              = Meta-Llama-3-8B-Instruct
+2026-03-31 18:58:57,704 llama_model_loader: - kv   2:                          llama.block_count u32              = 32
+2026-03-31 18:58:57,704 llama_model_loader: - kv   3:                       llama.context_length u32              = 8192
+2026-03-31 18:58:57,704 llama_model_loader: - kv   4:                     llama.embedding_length u32              = 4096
+2026-03-31 18:58:57,705 llama_model_loader: - kv   5:                  llama.feed_forward_length u32              = 14336
+2026-03-31 18:58:57,705 llama_model_loader: - kv   6:                 llama.attention.head_count u32              = 32
+2026-03-31 18:58:57,705 llama_model_loader: - kv   7:              llama.attention.head_count_kv u32              = 8
+2026-03-31 18:58:57,705 llama_model_loader: - kv   8:                       llama.rope.freq_base f32              = 500000.000000
+2026-03-31 18:58:57,705 llama_model_loader: - kv   9:     llama.attention.layer_norm_rms_epsilon f32              = 0.000010
+2026-03-31 18:58:57,705 llama_model_loader: - kv  10:                          general.file_type u32              = 2
+2026-03-31 18:58:57,706 llama_model_loader: - kv  11:                           llama.vocab_size u32              = 128256
+2026-03-31 18:58:57,706 llama_model_loader: - kv  12:                 llama.rope.dimension_count u32              = 128
+2026-03-31 18:58:57,706 llama_model_loader: - kv  13:                       tokenizer.ggml.model str              = gpt2
+2026-03-31 18:58:57,706 llama_model_loader: - kv  14:                         tokenizer.ggml.pre str              = llama-bpe
+2026-03-31 18:58:57,759 llama_model_loader: - kv  15:                      tokenizer.ggml.tokens arr[str,128256]  = ["!", "\"", "#", "$", "%", "&", "'", ...
+2026-03-31 18:58:57,786 llama_model_loader: - kv  16:                  tokenizer.ggml.token_type arr[i32,128256]  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+2026-03-31 18:58:57,953 llama_model_loader: - kv  17:                      tokenizer.ggml.merges arr[str,280147]  = ["Ġ Ġ", "Ġ ĠĠĠ", "ĠĠ ĠĠ", "...
+2026-03-31 18:58:57,954 llama_model_loader: - kv  18:                tokenizer.ggml.bos_token_id u32              = 128000
+2026-03-31 18:58:57,954 llama_model_loader: - kv  19:                tokenizer.ggml.eos_token_id u32              = 128009
+2026-03-31 18:58:57,954 llama_model_loader: - kv  20:                    tokenizer.chat_template str              = {% set loop_messages = messages %}{% ...
+2026-03-31 18:58:57,954 llama_model_loader: - kv  21:               general.quantization_version u32              = 2
+2026-03-31 18:58:57,954 llama_model_loader: - type  f32:   65 tensors
+2026-03-31 18:58:57,956 llama_model_loader: - type q4_0:  225 tensors
+2026-03-31 18:58:57,956 llama_model_loader: - type q6_K:    1 tensors
+2026-03-31 18:58:57,956 print_info: file format = GGUF V3 (latest)
+2026-03-31 18:58:57,956 print_info: file type   = Q4_0
+2026-03-31 18:58:57,957 print_info: file size   = 4.33 GiB (4.64 BPW)
+2026-03-31 18:58:58,184 load: printing all EOG tokens:
+2026-03-31 18:58:58,184 load:   - 128001 ('<|end_of_text|>')
+2026-03-31 18:58:58,185 load:   - 128009 ('<|eot_id|>')
+2026-03-31 18:58:58,185 load: special tokens cache size = 256
+2026-03-31 18:58:58,227 load: token to piece cache size = 0.8000 MB
+2026-03-31 18:58:58,227 print_info: arch             = llama
+2026-03-31 18:58:58,227 print_info: vocab_only       = 1
+2026-03-31 18:58:58,227 print_info: no_alloc         = 0
+2026-03-31 18:58:58,228 print_info: model type       = ?B
+2026-03-31 18:58:58,228 print_info: model params     = 8.03 B
+2026-03-31 18:58:58,228 print_info: general.name     = Meta-Llama-3-8B-Instruct
+2026-03-31 18:58:58,228 print_info: vocab type       = BPE
+2026-03-31 18:58:58,228 print_info: n_vocab          = 128256
+2026-03-31 18:58:58,229 print_info: n_merges         = 280147
+2026-03-31 18:58:58,229 print_info: BOS token        = 128000 '<|begin_of_text|>'
+2026-03-31 18:58:58,229 print_info: EOS token        = 128009 '<|eot_id|>'
+2026-03-31 18:58:58,229 print_info: EOT token        = 128001 '<|end_of_text|>'
+2026-03-31 18:58:58,229 print_info: LF token         = 198 'Ċ'
+2026-03-31 18:58:58,229 print_info: EOG token        = 128001 '<|end_of_text|>'
+2026-03-31 18:58:58,230 print_info: EOG token        = 128009 '<|eot_id|>'
+2026-03-31 18:58:58,230 print_info: max token length = 256
+2026-03-31 18:58:58,230 llama_model_load: vocab only - skipping tensors
+2026-03-31 18:58:58,231 time=2026-03-31T18:58:58.231+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --model C:\\Users\\Sohan Jala\\.ollama\\models\\blobs\\sha256-6a0746a1ec1aef3e7ec53868f220ff6e389f6f8ef87a01d77c96807de94ca2aa --port 55734"
+2026-03-31 18:58:58,243 time=2026-03-31T18:58:58.243+05:30 level=INFO source=sched.go:484 msg="system memory" total="15.7 GiB" free="3.1 GiB" free_swap="18.8 GiB"
+2026-03-31 18:58:58,243 time=2026-03-31T18:58:58.243+05:30 level=INFO source=sched.go:491 msg="gpu memory" id=GPU-e5221ff5-cbc6-11c4-e33b-f897cc77da53 library=CUDA available="7.1 GiB" free="7.5 GiB" minimum="457.0 MiB" overhead="0 B"
+2026-03-31 18:58:58,243 time=2026-03-31T18:58:58.243+05:30 level=INFO source=server.go:499 msg="loading model" "model layers"=33 requested=-1
+2026-03-31 18:58:58,243 time=2026-03-31T18:58:58.243+05:30 level=INFO source=device.go:240 msg="model weights" device=CUDA0 size="4.1 GiB"
+2026-03-31 18:58:58,244 time=2026-03-31T18:58:58.243+05:30 level=INFO source=device.go:251 msg="kv cache" device=CUDA0 size="512.0 MiB"
+2026-03-31 18:58:58,244 time=2026-03-31T18:58:58.243+05:30 level=INFO source=device.go:262 msg="compute graph" device=CUDA0 size="296.0 MiB"
+2026-03-31 18:58:58,244 time=2026-03-31T18:58:58.243+05:30 level=INFO source=device.go:272 msg="total memory" size="4.8 GiB"
+2026-03-31 18:58:58,344 time=2026-03-31T18:58:58.343+05:30 level=INFO source=runner.go:965 msg="starting go runner"
+2026-03-31 18:58:58,356 load_backend: loaded CPU backend from C:\Users\Sohan Jala\AppData\Local\Programs\Ollama\lib\ollama\ggml-cpu-alderlake.dll
+2026-03-31 18:58:58,403 ggml_cuda_init: GGML_CUDA_FORCE_MMQ:    no
+2026-03-31 18:58:58,405 ggml_cuda_init: GGML_CUDA_FORCE_CUBLAS: no
+2026-03-31 18:58:58,407 ggml_cuda_init: found 1 CUDA devices:
+2026-03-31 18:58:58,408 Device 0: NVIDIA GeForce RTX 4070 Laptop GPU, compute capability 8.9, VMM: yes, ID: GPU-e5221ff5-cbc6-11c4-e33b-f897cc77da53
+2026-03-31 18:58:58,410 load_backend: loaded CUDA backend from C:\Users\Sohan Jala\AppData\Local\Programs\Ollama\lib\ollama\cuda_v13\ggml-cuda.dll
+2026-03-31 18:58:58,411 time=2026-03-31T18:58:58.403+05:30 level=INFO source=ggml.go:104 msg=system CPU.0.SSE3=1 CPU.0.SSSE3=1 CPU.0.AVX=1 CPU.0.AVX_VNNI=1 CPU.0.AVX2=1 CPU.0.F16C=1 CPU.0.FMA=1 CPU.0.BMI2=1 CPU.0.LLAMAFILE=1 CPU.1.LLAMAFILE=1 CUDA.0.ARCHS=750,800,860,870,890,900,1000,1030,1100,1200,1210 CUDA.0.USE_GRAPHS=1 CUDA.0.PEER_MAX_BATCH_SIZE=128 compiler=cgo(clang)
+2026-03-31 18:58:58,413 time=2026-03-31T18:58:58.405+05:30 level=INFO source=runner.go:1001 msg="Server listening on 127.0.0.1:55734"
+2026-03-31 18:58:58,417 time=2026-03-31T18:58:58.417+05:30 level=INFO source=runner.go:895 msg=load request="{Operation:commit LoraPath:[] Parallel:1 BatchSize:512 FlashAttention:Auto KvSize:4096 KvCacheType: NumThreads:8 GPULayers:33[ID:GPU-e5221ff5-cbc6-11c4-e33b-f897cc77da53 Layers:33(0..32)] MultiUserCache:false ProjectorPath: MainGPU:0 UseMmap:false}"
+2026-03-31 18:58:58,419 time=2026-03-31T18:58:58.418+05:30 level=INFO source=server.go:1352 msg="waiting for llama runner to start responding"
+2026-03-31 18:58:58,421 time=2026-03-31T18:58:58.419+05:30 level=INFO source=server.go:1386 msg="waiting for server to become available" status="llm server loading model"
+2026-03-31 18:58:58,445 ggml_backend_cuda_device_get_memory device GPU-e5221ff5-cbc6-11c4-e33b-f897cc77da53 utilizing NVML memory reporting free: 8097701888 total: 8585740288
+2026-03-31 18:58:58,447 llama_model_load_from_file_impl: using device CUDA0 (NVIDIA GeForce RTX 4070 Laptop GPU) (0000:01:00.0) - 7722 MiB free
+2026-03-31 18:58:58,476 llama_model_loader: loaded meta data with 22 key-value pairs and 291 tensors from C:\Users\Sohan Jala\.ollama\models\blobs\sha256-6a0746a1ec1aef3e7ec53868f220ff6e389f6f8ef87a01d77c96807de94ca2aa (version GGUF V3 (latest))
+2026-03-31 18:58:58,479 llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+2026-03-31 18:58:58,480 llama_model_loader: - kv   0:                       general.architecture str              = llama
+2026-03-31 18:58:58,482 llama_model_loader: - kv   1:                               general.name str              = Meta-Llama-3-8B-Instruct
+2026-03-31 18:58:58,484 llama_model_loader: - kv   2:                          llama.block_count u32              = 32
+2026-03-31 18:58:58,486 llama_model_loader: - kv   3:                       llama.context_length u32              = 8192
+2026-03-31 18:58:58,487 llama_model_loader: - kv   4:                     llama.embedding_length u32              = 4096
+2026-03-31 18:58:58,489 llama_model_loader: - kv   5:                  llama.feed_forward_length u32              = 14336
+2026-03-31 18:58:58,492 llama_model_loader: - kv   6:                 llama.attention.head_count u32              = 32
+2026-03-31 18:58:58,494 llama_model_loader: - kv   7:              llama.attention.head_count_kv u32              = 8
+2026-03-31 18:58:58,496 llama_model_loader: - kv   8:                       llama.rope.freq_base f32              = 500000.000000
+2026-03-31 18:58:58,497 llama_model_loader: - kv   9:     llama.attention.layer_norm_rms_epsilon f32              = 0.000010
+2026-03-31 18:58:58,499 llama_model_loader: - kv  10:                          general.file_type u32              = 2
+2026-03-31 18:58:58,501 llama_model_loader: - kv  11:                           llama.vocab_size u32              = 128256
+2026-03-31 18:58:58,503 llama_model_loader: - kv  12:                 llama.rope.dimension_count u32              = 128
+2026-03-31 18:58:58,504 llama_model_loader: - kv  13:                       tokenizer.ggml.model str              = gpt2
+2026-03-31 18:58:58,505 llama_model_loader: - kv  14:                         tokenizer.ggml.pre str              = llama-bpe
+2026-03-31 18:58:58,508 llama_model_loader: - kv  15:                      tokenizer.ggml.tokens arr[str,128256]  = ["!", "\"", "#", "$", "%", "&", "'", ...
+2026-03-31 18:58:58,509 llama_model_loader: - kv  16:                  tokenizer.ggml.token_type arr[i32,128256]  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+2026-03-31 18:58:58,514 llama_model_loader: - kv  17:                      tokenizer.ggml.merges arr[str,280147]  = ["Ġ Ġ", "Ġ ĠĠĠ", "ĠĠ ĠĠ", "...
+2026-03-31 18:58:58,515 llama_model_loader: - kv  18:                tokenizer.ggml.bos_token_id u32              = 128000
+2026-03-31 18:58:58,516 llama_model_loader: - kv  19:                tokenizer.ggml.eos_token_id u32              = 128009
+2026-03-31 18:58:58,517 llama_model_loader: - kv  20:                    tokenizer.chat_template str              = {% set loop_messages = messages %}{% ...
+2026-03-31 18:58:58,518 llama_model_loader: - kv  21:               general.quantization_version u32              = 2
+2026-03-31 18:58:58,519 llama_model_loader: - type  f32:   65 tensors
+2026-03-31 18:58:58,520 llama_model_loader: - type q4_0:  225 tensors
+2026-03-31 18:58:58,521 llama_model_loader: - type q6_K:    1 tensors
+2026-03-31 18:58:58,521 print_info: file format = GGUF V3 (latest)
+2026-03-31 18:58:58,523 print_info: file type   = Q4_0
+2026-03-31 18:58:58,525 print_info: file size   = 4.33 GiB (4.64 BPW)
+2026-03-31 18:58:58,601 load: printing all EOG tokens:
+2026-03-31 18:58:58,601 load:   - 128001 ('<|end_of_text|>')
+2026-03-31 18:58:58,602 load:   - 128009 ('<|eot_id|>')
+2026-03-31 18:58:58,602 load: special tokens cache size = 256
+2026-03-31 18:58:58,623 load: token to piece cache size = 0.8000 MB
+2026-03-31 18:58:58,630 print_info: arch             = llama
+2026-03-31 18:58:58,631 print_info: vocab_only       = 0
+2026-03-31 18:58:58,631 print_info: no_alloc         = 0
+2026-03-31 18:58:58,631 print_info: n_ctx_train      = 8192
+2026-03-31 18:58:58,631 print_info: n_embd           = 4096
+2026-03-31 18:58:58,631 print_info: n_embd_inp       = 4096
+2026-03-31 18:58:58,631 print_info: n_layer          = 32
+2026-03-31 18:58:58,631 print_info: n_head           = 32
+2026-03-31 18:58:58,631 print_info: n_head_kv        = 8
+2026-03-31 18:58:58,631 print_info: n_rot            = 128
+2026-03-31 18:58:58,632 print_info: n_swa            = 0
+2026-03-31 18:58:58,632 print_info: is_swa_any       = 0
+2026-03-31 18:58:58,632 print_info: n_embd_head_k    = 128
+2026-03-31 18:58:58,632 print_info: n_embd_head_v    = 128
+2026-03-31 18:58:58,632 print_info: n_gqa            = 4
+2026-03-31 18:58:58,632 print_info: n_embd_k_gqa     = 1024
+2026-03-31 18:58:58,632 print_info: n_embd_v_gqa     = 1024
+2026-03-31 18:58:58,633 print_info: f_norm_eps       = 0.0e+00
+2026-03-31 18:58:58,633 print_info: f_norm_rms_eps   = 1.0e-05
+2026-03-31 18:58:58,634 print_info: f_clamp_kqv      = 0.0e+00
+2026-03-31 18:58:58,634 print_info: f_max_alibi_bias = 0.0e+00
+2026-03-31 18:58:58,634 print_info: f_logit_scale    = 0.0e+00
+2026-03-31 18:58:58,634 print_info: f_attn_scale     = 0.0e+00
+2026-03-31 18:58:58,634 print_info: n_ff             = 14336
+2026-03-31 18:58:58,635 print_info: n_expert         = 0
+2026-03-31 18:58:58,635 print_info: n_expert_used    = 0
+2026-03-31 18:58:58,635 print_info: n_expert_groups  = 0
+2026-03-31 18:58:58,635 print_info: n_group_used     = 0
+2026-03-31 18:58:58,635 print_info: causal attn      = 1
+2026-03-31 18:58:58,635 print_info: pooling type     = 0
+2026-03-31 18:58:58,635 print_info: rope type        = 0
+2026-03-31 18:58:58,635 print_info: rope scaling     = linear
+2026-03-31 18:58:58,635 print_info: freq_base_train  = 500000.0
+2026-03-31 18:58:58,635 print_info: freq_scale_train = 1
+2026-03-31 18:58:58,635 print_info: n_ctx_orig_yarn  = 8192
+2026-03-31 18:58:58,636 print_info: rope_yarn_log_mul= 0.0000
+2026-03-31 18:58:58,636 print_info: rope_finetuned   = unknown
+2026-03-31 18:58:58,636 print_info: model type       = 8B
+2026-03-31 18:58:58,636 print_info: model params     = 8.03 B
+2026-03-31 18:58:58,636 print_info: general.name     = Meta-Llama-3-8B-Instruct
+2026-03-31 18:58:58,636 print_info: vocab type       = BPE
+2026-03-31 18:58:58,636 print_info: n_vocab          = 128256
+2026-03-31 18:58:58,636 print_info: n_merges         = 280147
+2026-03-31 18:58:58,636 print_info: BOS token        = 128000 '<|begin_of_text|>'
+2026-03-31 18:58:58,637 print_info: EOS token        = 128009 '<|eot_id|>'
+2026-03-31 18:58:58,637 print_info: EOT token        = 128001 '<|end_of_text|>'
+2026-03-31 18:58:58,637 print_info: LF token         = 198 'Ċ'
+2026-03-31 18:58:58,637 print_info: EOG token        = 128001 '<|end_of_text|>'
+2026-03-31 18:58:58,637 print_info: EOG token        = 128009 '<|eot_id|>'
+2026-03-31 18:58:58,637 print_info: max token length = 256
+2026-03-31 18:58:58,637 load_tensors: loading model tensors, this can take a while... (mmap = false)
+2026-03-31 18:58:58,680 load_tensors: offloading 32 repeating layers to GPU
+2026-03-31 18:58:58,680 load_tensors: offloading output layer to GPU
+2026-03-31 18:58:58,680 load_tensors: offloaded 33/33 layers to GPU
+2026-03-31 18:58:58,681 load_tensors:        CUDA0 model buffer size =  4155.99 MiB
+2026-03-31 18:58:58,681 load_tensors:    CUDA_Host model buffer size =   281.81 MiB
+2026-03-31 18:59:03,418 llama_context: constructing llama_context
+2026-03-31 18:59:03,418 llama_context: n_seq_max     = 1
+2026-03-31 18:59:03,419 llama_context: n_ctx         = 4096
+2026-03-31 18:59:03,420 llama_context: n_ctx_seq     = 4096
+2026-03-31 18:59:03,420 llama_context: n_batch       = 512
+2026-03-31 18:59:03,421 llama_context: n_ubatch      = 512
+2026-03-31 18:59:03,421 llama_context: causal_attn   = 1
+2026-03-31 18:59:03,421 llama_context: flash_attn    = auto
+2026-03-31 18:59:03,421 llama_context: kv_unified    = false
+2026-03-31 18:59:03,422 llama_context: freq_base     = 500000.0
+2026-03-31 18:59:03,422 llama_context: freq_scale    = 1
+2026-03-31 18:59:03,423 llama_context: n_ctx_seq (4096) < n_ctx_train (8192) -- the full capacity of the model will not be utilized
+2026-03-31 18:59:03,424 llama_context:  CUDA_Host  output buffer size =     0.50 MiB
+2026-03-31 18:59:03,424 llama_kv_cache:      CUDA0 KV buffer size =   512.00 MiB
+2026-03-31 18:59:03,435 llama_kv_cache: size =  512.00 MiB (  4096 cells,  32 layers,  1/1 seqs), K (f16):  256.00 MiB, V (f16):  256.00 MiB
+2026-03-31 18:59:03,442 llama_context: Flash Attention was auto, set to enabled
+2026-03-31 18:59:03,875 llama_context:      CUDA0 compute buffer size =   258.50 MiB
+2026-03-31 18:59:03,876 llama_context:  CUDA_Host compute buffer size =    16.01 MiB
+2026-03-31 18:59:03,877 llama_context: graph nodes  = 999
+2026-03-31 18:59:03,878 llama_context: graph splits = 2
+2026-03-31 18:59:03,961 time=2026-03-31T18:59:03.960+05:30 level=INFO source=server.go:1390 msg="llama runner started in 5.72 seconds"
+2026-03-31 18:59:03,962 time=2026-03-31T18:59:03.960+05:30 level=INFO source=sched.go:561 msg="loaded runners" count=1
+2026-03-31 18:59:03,964 time=2026-03-31T18:59:03.961+05:30 level=INFO source=server.go:1352 msg="waiting for llama runner to start responding"
+2026-03-31 18:59:03,965 time=2026-03-31T18:59:03.965+05:30 level=INFO source=server.go:1390 msg="llama runner started in 5.72 seconds"
+2026-03-31 18:59:04,369 [GIN] 2026/03/31 - 18:59:04 | 200 |    7.6291907s |       127.0.0.1 | POST     "/api/generate"
+2026-03-31 18:59:08,869 [GIN] 2026/03/31 - 18:59:08 | 200 |    2.4693338s |       127.0.0.1 | POST     "/api/generate"
+2026-03-31 19:04:08,904 time=2026-03-31T19:04:08.904+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 63231"
+2026-03-31 19:04:09,428 time=2026-03-31T19:04:09.427+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 63246"
+2026-03-31 19:05:27,749 time=2026-03-31T19:05:27.749+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --port 58384"
+2026-03-31 19:05:27,979 time=2026-03-31T19:05:27.979+05:30 level=INFO source=cpu_windows.go:148 msg=packages count=1
+2026-03-31 19:05:27,981 time=2026-03-31T19:05:27.979+05:30 level=INFO source=cpu_windows.go:164 msg="efficiency cores detected" maxEfficiencyClass=1
+2026-03-31 19:05:27,981 time=2026-03-31T19:05:27.979+05:30 level=INFO source=cpu_windows.go:195 msg="" package=0 cores=16 efficiency=8 threads=24
+2026-03-31 19:05:28,012 time=2026-03-31T19:05:28.012+05:30 level=WARN source=server.go:169 msg="requested context size too large for model" num_ctx=8192 n_ctx_train=2048
+2026-03-31 19:05:28,016 time=2026-03-31T19:05:28.016+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --ollama-engine --model C:\\Users\\Sohan Jala\\.ollama\\models\\blobs\\sha256-970aa74c0a90ef7482477cf803618e776e173c007bf957f635f1015bfcfef0e6 --port 58398"
+2026-03-31 19:05:28,023 time=2026-03-31T19:05:28.022+05:30 level=INFO source=sched.go:484 msg="system memory" total="15.7 GiB" free="3.1 GiB" free_swap="18.0 GiB"
+2026-03-31 19:05:28,023 time=2026-03-31T19:05:28.022+05:30 level=INFO source=sched.go:491 msg="gpu memory" id=GPU-e5221ff5-cbc6-11c4-e33b-f897cc77da53 library=CUDA available="7.1 GiB" free="7.5 GiB" minimum="457.0 MiB" overhead="0 B"
+2026-03-31 19:05:28,024 time=2026-03-31T19:05:28.022+05:30 level=INFO source=server.go:759 msg="loading model" "model layers"=13 requested=-1
+2026-03-31 19:05:28,126 time=2026-03-31T19:05:28.126+05:30 level=INFO source=runner.go:1411 msg="starting ollama engine"
+2026-03-31 19:05:28,128 time=2026-03-31T19:05:28.127+05:30 level=INFO source=runner.go:1446 msg="Server listening on 127.0.0.1:58398"
+2026-03-31 19:05:28,136 time=2026-03-31T19:05:28.136+05:30 level=INFO source=runner.go:1284 msg=load request="{Operation:fit LoraPath:[] Parallel:1 BatchSize:512 FlashAttention:Disabled KvSize:2048 KvCacheType: NumThreads:8 GPULayers:13[ID:GPU-e5221ff5-cbc6-11c4-e33b-f897cc77da53 Layers:13(0..12)] MultiUserCache:false ProjectorPath: MainGPU:0 UseMmap:false}"
+2026-03-31 19:05:28,139 time=2026-03-31T19:05:28.138+05:30 level=INFO source=ggml.go:136 msg="" architecture=nomic-bert file_type=F16 name=nomic-embed-text-v1.5 description="" num_tensors=112 num_key_values=25
+2026-03-31 19:05:28,150 load_backend: loaded CPU backend from C:\Users\Sohan Jala\AppData\Local\Programs\Ollama\lib\ollama\ggml-cpu-alderlake.dll
+2026-03-31 19:05:28,200 ggml_cuda_init: GGML_CUDA_FORCE_MMQ:    no
+2026-03-31 19:05:28,200 ggml_cuda_init: GGML_CUDA_FORCE_CUBLAS: no
+2026-03-31 19:05:28,200 ggml_cuda_init: found 1 CUDA devices:
+2026-03-31 19:05:28,200 Device 0: NVIDIA GeForce RTX 4070 Laptop GPU, compute capability 8.9, VMM: yes, ID: GPU-e5221ff5-cbc6-11c4-e33b-f897cc77da53
+2026-03-31 19:05:28,200 load_backend: loaded CUDA backend from C:\Users\Sohan Jala\AppData\Local\Programs\Ollama\lib\ollama\cuda_v13\ggml-cuda.dll
+2026-03-31 19:05:28,200 time=2026-03-31T19:05:28.200+05:30 level=INFO source=ggml.go:104 msg=system CPU.0.SSE3=1 CPU.0.SSSE3=1 CPU.0.AVX=1 CPU.0.AVX_VNNI=1 CPU.0.AVX2=1 CPU.0.F16C=1 CPU.0.FMA=1 CPU.0.BMI2=1 CPU.0.LLAMAFILE=1 CPU.1.LLAMAFILE=1 CUDA.0.ARCHS=750,800,860,870,890,900,1000,1030,1100,1200,1210 CUDA.0.USE_GRAPHS=1 CUDA.0.PEER_MAX_BATCH_SIZE=128 compiler=cgo(clang)
+2026-03-31 19:05:28,202 time=2026-03-31T19:05:28.202+05:30 level=WARN source=runner.go:1219 msg="model does not support caching, setting batch size to context length" batch_size=2048
+2026-03-31 19:05:40,531 time=2026-03-31T19:05:40.531+05:30 level=INFO source=runner.go:1284 msg=load request="{Operation:alloc LoraPath:[] Parallel:1 BatchSize:512 FlashAttention:Disabled KvSize:2048 KvCacheType: NumThreads:8 GPULayers:13[ID:GPU-e5221ff5-cbc6-11c4-e33b-f897cc77da53 Layers:13(0..12)] MultiUserCache:false ProjectorPath: MainGPU:0 UseMmap:false}"
+2026-03-31 19:05:40,547 time=2026-03-31T19:05:40.547+05:30 level=WARN source=runner.go:1219 msg="model does not support caching, setting batch size to context length" batch_size=2048
+2026-03-31 19:05:40,555 time=2026-03-31T19:05:40.555+05:30 level=INFO source=device.go:240 msg="model weights" device=CUDA0 size="260.9 MiB"
+2026-03-31 19:05:40,556 time=2026-03-31T19:05:40.555+05:30 level=INFO source=device.go:245 msg="model weights" device=CPU size="44.7 MiB"
+2026-03-31 19:05:40,556 time=2026-03-31T19:05:40.555+05:30 level=INFO source=device.go:262 msg="compute graph" device=CUDA0 size="256.0 MiB"
+2026-03-31 19:05:40,557 time=2026-03-31T19:05:40.555+05:30 level=INFO source=device.go:267 msg="compute graph" device=CPU size="6.0 MiB"
+2026-03-31 19:05:40,558 time=2026-03-31T19:05:40.555+05:30 level=INFO source=device.go:272 msg="total memory" size="567.6 MiB"
+2026-03-31 19:05:40,558 time=2026-03-31T19:05:40.555+05:30 level=INFO source=sched.go:561 msg="loaded runners" count=1
+2026-03-31 19:05:40,566 time=2026-03-31T19:05:40.555+05:30 level=INFO source=server.go:1352 msg="waiting for llama runner to start responding"
+2026-03-31 19:05:40,566 time=2026-03-31T19:05:40.555+05:30 level=INFO source=runner.go:1284 msg=load request="{Operation:commit LoraPath:[] Parallel:1 BatchSize:512 FlashAttention:Disabled KvSize:2048 KvCacheType: NumThreads:8 GPULayers:13[ID:GPU-e5221ff5-cbc6-11c4-e33b-f897cc77da53 Layers:13(0..12)] MultiUserCache:false ProjectorPath: MainGPU:0 UseMmap:false}"
+2026-03-31 19:05:40,566 time=2026-03-31T19:05:40.556+05:30 level=INFO source=server.go:1386 msg="waiting for server to become available" status="llm server loading model"
+2026-03-31 19:05:40,566 time=2026-03-31T19:05:40.555+05:30 level=INFO source=ggml.go:482 msg="offloading 12 repeating layers to GPU"
+2026-03-31 19:05:40,566 time=2026-03-31T19:05:40.556+05:30 level=INFO source=ggml.go:489 msg="offloading output layer to GPU"
+2026-03-31 19:05:40,566 time=2026-03-31T19:05:40.556+05:30 level=INFO source=ggml.go:494 msg="offloaded 13/13 layers to GPU"
+2026-03-31 19:05:41,057 time=2026-03-31T19:05:41.057+05:30 level=INFO source=server.go:1390 msg="llama runner started in 13.04 seconds"
+2026-03-31 19:05:41,108 [GIN] 2026/03/31 - 19:05:41 | 200 |   13.4118971s |       127.0.0.1 | POST     "/api/embeddings"
+2026-03-31 19:06:38,327 [GIN] 2026/03/31 - 19:06:38 | 200 |     61.5667ms |       127.0.0.1 | POST     "/api/embeddings"
+2026-03-31 19:08:20,586 [GIN] 2026/03/31 - 19:08:20 | 200 |    172.4895ms |       127.0.0.1 | POST     "/api/embeddings"
+2026-03-31 19:08:38,160 ggml_backend_cuda_device_get_memory device GPU-e5221ff5-cbc6-11c4-e33b-f897cc77da53 utilizing NVML memory reporting free: 7537762304 total: 8585740288
+2026-03-31 19:08:38,162 time=2026-03-31T19:08:38.162+05:30 level=INFO source=cpu_windows.go:148 msg=packages count=1
+2026-03-31 19:08:38,163 time=2026-03-31T19:08:38.162+05:30 level=INFO source=cpu_windows.go:164 msg="efficiency cores detected" maxEfficiencyClass=1
+2026-03-31 19:08:38,164 time=2026-03-31T19:08:38.162+05:30 level=INFO source=cpu_windows.go:195 msg="" package=0 cores=16 efficiency=8 threads=24
+2026-03-31 19:08:38,168 time=2026-03-31T19:08:38.167+05:30 level=INFO source=sched.go:627 msg="updated VRAM based on existing loaded models" gpu=GPU-e5221ff5-cbc6-11c4-e33b-f897cc77da53 library=CUDA total="8.0 GiB" available="7.0 GiB"
+2026-03-31 19:08:38,548 llama_model_loader: loaded meta data with 22 key-value pairs and 291 tensors from C:\Users\Sohan Jala\.ollama\models\blobs\sha256-6a0746a1ec1aef3e7ec53868f220ff6e389f6f8ef87a01d77c96807de94ca2aa (version GGUF V3 (latest))
+2026-03-31 19:08:38,548 llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+2026-03-31 19:08:38,548 llama_model_loader: - kv   0:                       general.architecture str              = llama
+2026-03-31 19:08:38,549 llama_model_loader: - kv   1:                               general.name str              = Meta-Llama-3-8B-Instruct
+2026-03-31 19:08:38,549 llama_model_loader: - kv   2:                          llama.block_count u32              = 32
+2026-03-31 19:08:38,549 llama_model_loader: - kv   3:                       llama.context_length u32              = 8192
+2026-03-31 19:08:38,549 llama_model_loader: - kv   4:                     llama.embedding_length u32              = 4096
+2026-03-31 19:08:38,549 llama_model_loader: - kv   5:                  llama.feed_forward_length u32              = 14336
+2026-03-31 19:08:38,550 llama_model_loader: - kv   6:                 llama.attention.head_count u32              = 32
+2026-03-31 19:08:38,550 llama_model_loader: - kv   7:              llama.attention.head_count_kv u32              = 8
+2026-03-31 19:08:38,550 llama_model_loader: - kv   8:                       llama.rope.freq_base f32              = 500000.000000
+2026-03-31 19:08:38,551 llama_model_loader: - kv   9:     llama.attention.layer_norm_rms_epsilon f32              = 0.000010
+2026-03-31 19:08:38,551 llama_model_loader: - kv  10:                          general.file_type u32              = 2
+2026-03-31 19:08:38,551 llama_model_loader: - kv  11:                           llama.vocab_size u32              = 128256
+2026-03-31 19:08:38,551 llama_model_loader: - kv  12:                 llama.rope.dimension_count u32              = 128
+2026-03-31 19:08:38,551 llama_model_loader: - kv  13:                       tokenizer.ggml.model str              = gpt2
+2026-03-31 19:08:38,552 llama_model_loader: - kv  14:                         tokenizer.ggml.pre str              = llama-bpe
+2026-03-31 19:08:38,578 llama_model_loader: - kv  15:                      tokenizer.ggml.tokens arr[str,128256]  = ["!", "\"", "#", "$", "%", "&", "'", ...
+2026-03-31 19:08:38,584 llama_model_loader: - kv  16:                  tokenizer.ggml.token_type arr[i32,128256]  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+2026-03-31 19:08:38,633 llama_model_loader: - kv  17:                      tokenizer.ggml.merges arr[str,280147]  = ["Ġ Ġ", "Ġ ĠĠĠ", "ĠĠ ĠĠ", "...
+2026-03-31 19:08:38,634 llama_model_loader: - kv  18:                tokenizer.ggml.bos_token_id u32              = 128000
+2026-03-31 19:08:38,634 llama_model_loader: - kv  19:                tokenizer.ggml.eos_token_id u32              = 128009
+2026-03-31 19:08:38,634 llama_model_loader: - kv  20:                    tokenizer.chat_template str              = {% set loop_messages = messages %}{% ...
+2026-03-31 19:08:38,634 llama_model_loader: - kv  21:               general.quantization_version u32              = 2
+2026-03-31 19:08:38,634 llama_model_loader: - type  f32:   65 tensors
+2026-03-31 19:08:38,634 llama_model_loader: - type q4_0:  225 tensors
+2026-03-31 19:08:38,634 llama_model_loader: - type q6_K:    1 tensors
+2026-03-31 19:08:38,634 print_info: file format = GGUF V3 (latest)
+2026-03-31 19:08:38,634 print_info: file type   = Q4_0
+2026-03-31 19:08:38,634 print_info: file size   = 4.33 GiB (4.64 BPW)
+2026-03-31 19:08:38,780 load: printing all EOG tokens:
+2026-03-31 19:08:38,781 load:   - 128001 ('<|end_of_text|>')
+2026-03-31 19:08:38,781 load:   - 128009 ('<|eot_id|>')
+2026-03-31 19:08:38,781 load: special tokens cache size = 256
+2026-03-31 19:08:38,822 load: token to piece cache size = 0.8000 MB
+2026-03-31 19:08:38,823 print_info: arch             = llama
+2026-03-31 19:08:38,823 print_info: vocab_only       = 1
+2026-03-31 19:08:38,823 print_info: no_alloc         = 0
+2026-03-31 19:08:38,824 print_info: model type       = ?B
+2026-03-31 19:08:38,824 print_info: model params     = 8.03 B
+2026-03-31 19:08:38,824 print_info: general.name     = Meta-Llama-3-8B-Instruct
+2026-03-31 19:08:38,824 print_info: vocab type       = BPE
+2026-03-31 19:08:38,824 print_info: n_vocab          = 128256
+2026-03-31 19:08:38,824 print_info: n_merges         = 280147
+2026-03-31 19:08:38,825 print_info: BOS token        = 128000 '<|begin_of_text|>'
+2026-03-31 19:08:38,825 print_info: EOS token        = 128009 '<|eot_id|>'
+2026-03-31 19:08:38,825 print_info: EOT token        = 128001 '<|end_of_text|>'
+2026-03-31 19:08:38,825 print_info: LF token         = 198 'Ċ'
+2026-03-31 19:08:38,825 print_info: EOG token        = 128001 '<|end_of_text|>'
+2026-03-31 19:08:38,825 print_info: EOG token        = 128009 '<|eot_id|>'
+2026-03-31 19:08:38,825 print_info: max token length = 256
+2026-03-31 19:08:38,825 llama_model_load: vocab only - skipping tensors
+2026-03-31 19:08:38,833 time=2026-03-31T19:08:38.832+05:30 level=INFO source=server.go:432 msg="starting runner" cmd="C:\\Users\\Sohan Jala\\AppData\\Local\\Programs\\Ollama\\ollama.exe runner --model C:\\Users\\Sohan Jala\\.ollama\\models\\blobs\\sha256-6a0746a1ec1aef3e7ec53868f220ff6e389f6f8ef87a01d77c96807de94ca2aa --port 62877"
+2026-03-31 19:08:38,843 time=2026-03-31T19:08:38.843+05:30 level=INFO source=sched.go:484 msg="system memory" total="15.7 GiB" free="3.2 GiB" free_swap="18.1 GiB"
+2026-03-31 19:08:38,844 time=2026-03-31T19:08:38.843+05:30 level=INFO source=sched.go:491 msg="gpu memory" id=GPU-e5221ff5-cbc6-11c4-e33b-f897cc77da53 library=CUDA available="6.6 GiB" free="7.0 GiB" minimum="457.0 MiB" overhead="0 B"
+2026-03-31 19:08:38,845 time=2026-03-31T19:08:38.843+05:30 level=INFO source=server.go:499 msg="loading model" "model layers"=33 requested=-1
+2026-03-31 19:08:38,846 time=2026-03-31T19:08:38.846+05:30 level=INFO source=device.go:240 msg="model weights" device=CUDA0 size="4.1 GiB"
+2026-03-31 19:08:38,847 time=2026-03-31T19:08:38.846+05:30 level=INFO source=device.go:251 msg="kv cache" device=CUDA0 size="512.0 MiB"
+2026-03-31 19:08:38,847 time=2026-03-31T19:08:38.846+05:30 level=INFO source=device.go:262 msg="compute graph" device=CUDA0 size="296.0 MiB"
+2026-03-31 19:08:38,847 time=2026-03-31T19:08:38.846+05:30 level=INFO source=device.go:272 msg="total memory" size="4.8 GiB"
+2026-03-31 19:08:38,972 time=2026-03-31T19:08:38.970+05:30 level=INFO source=runner.go:965 msg="starting go runner"
+2026-03-31 19:08:38,981 load_backend: loaded CPU backend from C:\Users\Sohan Jala\AppData\Local\Programs\Ollama\lib\ollama\ggml-cpu-alderlake.dll
+2026-03-31 19:08:39,023 ggml_cuda_init: GGML_CUDA_FORCE_MMQ:    no
+2026-03-31 19:08:39,023 ggml_cuda_init: GGML_CUDA_FORCE_CUBLAS: no
+2026-03-31 19:08:39,023 ggml_cuda_init: found 1 CUDA devices:
+2026-03-31 19:08:39,024 Device 0: NVIDIA GeForce RTX 4070 Laptop GPU, compute capability 8.9, VMM: yes, ID: GPU-e5221ff5-cbc6-11c4-e33b-f897cc77da53
+2026-03-31 19:08:39,025 load_backend: loaded CUDA backend from C:\Users\Sohan Jala\AppData\Local\Programs\Ollama\lib\ollama\cuda_v13\ggml-cuda.dll
+2026-03-31 19:08:39,025 time=2026-03-31T19:08:39.023+05:30 level=INFO source=ggml.go:104 msg=system CPU.0.SSE3=1 CPU.0.SSSE3=1 CPU.0.AVX=1 CPU.0.AVX_VNNI=1 CPU.0.AVX2=1 CPU.0.F16C=1 CPU.0.FMA=1 CPU.0.BMI2=1 CPU.0.LLAMAFILE=1 CPU.1.LLAMAFILE=1 CUDA.0.ARCHS=750,800,860,870,890,900,1000,1030,1100,1200,1210 CUDA.0.USE_GRAPHS=1 CUDA.0.PEER_MAX_BATCH_SIZE=128 compiler=cgo(clang)
+2026-03-31 19:08:39,025 time=2026-03-31T19:08:39.024+05:30 level=INFO source=runner.go:1001 msg="Server listening on 127.0.0.1:62877"
+2026-03-31 19:08:39,035 time=2026-03-31T19:08:39.035+05:30 level=INFO source=runner.go:895 msg=load request="{Operation:commit LoraPath:[] Parallel:1 BatchSize:512 FlashAttention:Auto KvSize:4096 KvCacheType: NumThreads:8 GPULayers:33[ID:GPU-e5221ff5-cbc6-11c4-e33b-f897cc77da53 Layers:33(0..32)] MultiUserCache:false ProjectorPath: MainGPU:0 UseMmap:false}"
+2026-03-31 19:08:39,036 time=2026-03-31T19:08:39.036+05:30 level=INFO source=server.go:1352 msg="waiting for llama runner to start responding"
+2026-03-31 19:08:39,037 time=2026-03-31T19:08:39.037+05:30 level=INFO source=server.go:1386 msg="waiting for server to become available" status="llm server loading model"
+2026-03-31 19:08:39,049 ggml_backend_cuda_device_get_memory device GPU-e5221ff5-cbc6-11c4-e33b-f897cc77da53 utilizing NVML memory reporting free: 7419572224 total: 8585740288
+2026-03-31 19:08:39,051 llama_model_load_from_file_impl: using device CUDA0 (NVIDIA GeForce RTX 4070 Laptop GPU) (0000:01:00.0) - 7075 MiB free
+2026-03-31 19:08:39,082 llama_model_loader: loaded meta data with 22 key-value pairs and 291 tensors from C:\Users\Sohan Jala\.ollama\models\blobs\sha256-6a0746a1ec1aef3e7ec53868f220ff6e389f6f8ef87a01d77c96807de94ca2aa (version GGUF V3 (latest))
+2026-03-31 19:08:39,083 llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+2026-03-31 19:08:39,086 llama_model_loader: - kv   0:                       general.architecture str              = llama
+2026-03-31 19:08:39,087 llama_model_loader: - kv   1:                               general.name str              = Meta-Llama-3-8B-Instruct
+2026-03-31 19:08:39,088 llama_model_loader: - kv   2:                          llama.block_count u32              = 32
+2026-03-31 19:08:39,088 llama_model_loader: - kv   3:                       llama.context_length u32              = 8192
+2026-03-31 19:08:39,088 llama_model_loader: - kv   4:                     llama.embedding_length u32              = 4096
+2026-03-31 19:08:39,090 llama_model_loader: - kv   5:                  llama.feed_forward_length u32              = 14336
+2026-03-31 19:08:39,090 llama_model_loader: - kv   6:                 llama.attention.head_count u32              = 32
+2026-03-31 19:08:39,091 llama_model_loader: - kv   7:              llama.attention.head_count_kv u32              = 8
+2026-03-31 19:08:39,091 llama_model_loader: - kv   8:                       llama.rope.freq_base f32              = 500000.000000
+2026-03-31 19:08:39,092 llama_model_loader: - kv   9:     llama.attention.layer_norm_rms_epsilon f32              = 0.000010
+2026-03-31 19:08:39,092 llama_model_loader: - kv  10:                          general.file_type u32              = 2
+2026-03-31 19:08:39,093 llama_model_loader: - kv  11:                           llama.vocab_size u32              = 128256
+2026-03-31 19:08:39,093 llama_model_loader: - kv  12:                 llama.rope.dimension_count u32              = 128
+2026-03-31 19:08:39,094 llama_model_loader: - kv  13:                       tokenizer.ggml.model str              = gpt2
+2026-03-31 19:08:39,095 llama_model_loader: - kv  14:                         tokenizer.ggml.pre str              = llama-bpe
+2026-03-31 19:08:39,095 llama_model_loader: - kv  15:                      tokenizer.ggml.tokens arr[str,128256]  = ["!", "\"", "#", "$", "%", "&", "'", ...
+2026-03-31 19:08:39,098 llama_model_loader: - kv  16:                  tokenizer.ggml.token_type arr[i32,128256]  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+2026-03-31 19:08:39,124 llama_model_loader: - kv  17:                      tokenizer.ggml.merges arr[str,280147]  = ["Ġ Ġ", "Ġ ĠĠĠ", "ĠĠ ĠĠ", "...
+2026-03-31 19:08:39,125 llama_model_loader: - kv  18:                tokenizer.ggml.bos_token_id u32              = 128000
+2026-03-31 19:08:39,126 llama_model_loader: - kv  19:                tokenizer.ggml.eos_token_id u32              = 128009
+2026-03-31 19:08:39,128 llama_model_loader: - kv  20:                    tokenizer.chat_template str              = {% set loop_messages = messages %}{% ...
+2026-03-31 19:08:39,130 llama_model_loader: - kv  21:               general.quantization_version u32              = 2
+2026-03-31 19:08:39,131 llama_model_loader: - type  f32:   65 tensors
+2026-03-31 19:08:39,132 llama_model_loader: - type q4_0:  225 tensors
+2026-03-31 19:08:39,134 llama_model_loader: - type q6_K:    1 tensors
+2026-03-31 19:08:39,135 print_info: file format = GGUF V3 (latest)
+2026-03-31 19:08:39,136 print_info: file type   = Q4_0
+2026-03-31 19:08:39,137 print_info: file size   = 4.33 GiB (4.64 BPW)
+2026-03-31 19:08:39,216 load: printing all EOG tokens:
+2026-03-31 19:08:39,220 load:   - 128001 ('<|end_of_text|>')
+2026-03-31 19:08:39,221 load:   - 128009 ('<|eot_id|>')
+2026-03-31 19:08:39,224 load: special tokens cache size = 256
+2026-03-31 19:08:39,241 load: token to piece cache size = 0.8000 MB
+2026-03-31 19:08:39,243 print_info: arch             = llama
+2026-03-31 19:08:39,244 print_info: vocab_only       = 0
+2026-03-31 19:08:39,245 print_info: no_alloc         = 0
+2026-03-31 19:08:39,246 print_info: n_ctx_train      = 8192
+2026-03-31 19:08:39,247 print_info: n_embd           = 4096
+2026-03-31 19:08:39,248 print_info: n_embd_inp       = 4096
+2026-03-31 19:08:39,250 print_info: n_layer          = 32
+2026-03-31 19:08:39,250 print_info: n_head           = 32
+2026-03-31 19:08:39,250 print_info: n_head_kv        = 8
+2026-03-31 19:08:39,250 print_info: n_rot            = 128
+2026-03-31 19:08:39,250 print_info: n_swa            = 0
+2026-03-31 19:08:39,251 print_info: is_swa_any       = 0
+2026-03-31 19:08:39,251 print_info: n_embd_head_k    = 128
+2026-03-31 19:08:39,251 print_info: n_embd_head_v    = 128
+2026-03-31 19:08:39,251 print_info: n_gqa            = 4
+2026-03-31 19:08:39,251 print_info: n_embd_k_gqa     = 1024
+2026-03-31 19:08:39,251 print_info: n_embd_v_gqa     = 1024
+2026-03-31 19:08:39,251 print_info: f_norm_eps       = 0.0e+00
+2026-03-31 19:08:39,251 print_info: f_norm_rms_eps   = 1.0e-05
+2026-03-31 19:08:39,251 print_info: f_clamp_kqv      = 0.0e+00
+2026-03-31 19:08:39,252 print_info: f_max_alibi_bias = 0.0e+00
+2026-03-31 19:08:39,252 print_info: f_logit_scale    = 0.0e+00
+2026-03-31 19:08:39,252 print_info: f_attn_scale     = 0.0e+00
+2026-03-31 19:08:39,252 print_info: n_ff             = 14336
+2026-03-31 19:08:39,252 print_info: n_expert         = 0
+2026-03-31 19:08:39,252 print_info: n_expert_used    = 0
+2026-03-31 19:08:39,252 print_info: n_expert_groups  = 0
+2026-03-31 19:08:39,252 print_info: n_group_used     = 0
+2026-03-31 19:08:39,252 print_info: causal attn      = 1
+2026-03-31 19:08:39,253 print_info: pooling type     = 0
+2026-03-31 19:08:39,253 print_info: rope type        = 0
+2026-03-31 19:08:39,255 print_info: rope scaling     = linear
+2026-03-31 19:08:39,256 print_info: freq_base_train  = 500000.0
+2026-03-31 19:08:39,257 print_info: freq_scale_train = 1
+2026-03-31 19:08:39,258 print_info: n_ctx_orig_yarn  = 8192
+2026-03-31 19:08:39,259 print_info: rope_yarn_log_mul= 0.0000
+2026-03-31 19:08:39,260 print_info: rope_finetuned   = unknown
+2026-03-31 19:08:39,261 print_info: model type       = 8B
+2026-03-31 19:08:39,262 print_info: model params     = 8.03 B
+2026-03-31 19:08:39,263 print_info: general.name     = Meta-Llama-3-8B-Instruct
+2026-03-31 19:08:39,264 print_info: vocab type       = BPE
+2026-03-31 19:08:39,265 print_info: n_vocab          = 128256
+2026-03-31 19:08:39,266 print_info: n_merges         = 280147
+2026-03-31 19:08:39,268 print_info: BOS token        = 128000 '<|begin_of_text|>'
+2026-03-31 19:08:39,269 print_info: EOS token        = 128009 '<|eot_id|>'
+2026-03-31 19:08:39,270 print_info: EOT token        = 128001 '<|end_of_text|>'
+2026-03-31 19:08:39,272 print_info: LF token         = 198 'Ċ'
+2026-03-31 19:08:39,273 print_info: EOG token        = 128001 '<|end_of_text|>'
+2026-03-31 19:08:39,275 print_info: EOG token        = 128009 '<|eot_id|>'
+2026-03-31 19:08:39,275 print_info: max token length = 256
+2026-03-31 19:08:39,275 load_tensors: loading model tensors, this can take a while... (mmap = false)
+2026-03-31 19:08:39,285 load_tensors: offloading 32 repeating layers to GPU
+2026-03-31 19:08:39,285 load_tensors: offloading output layer to GPU
+2026-03-31 19:08:39,285 load_tensors: offloaded 33/33 layers to GPU
+2026-03-31 19:08:39,286 load_tensors:        CUDA0 model buffer size =  4155.99 MiB
+2026-03-31 19:08:39,286 load_tensors:    CUDA_Host model buffer size =   281.81 MiB
+2026-03-31 19:08:43,569 llama_context: constructing llama_context
+2026-03-31 19:08:43,569 llama_context: n_seq_max     = 1
+2026-03-31 19:08:43,569 llama_context: n_ctx         = 4096
+2026-03-31 19:08:43,570 llama_context: n_ctx_seq     = 4096
+2026-03-31 19:08:43,570 llama_context: n_batch       = 512
+2026-03-31 19:08:43,570 llama_context: n_ubatch      = 512
+2026-03-31 19:08:43,571 llama_context: causal_attn   = 1
+2026-03-31 19:08:43,571 llama_context: flash_attn    = auto
+2026-03-31 19:08:43,571 llama_context: kv_unified    = false
+2026-03-31 19:08:43,571 llama_context: freq_base     = 500000.0
+2026-03-31 19:08:43,571 llama_context: freq_scale    = 1
+2026-03-31 19:08:43,571 llama_context: n_ctx_seq (4096) < n_ctx_train (8192) -- the full capacity of the model will not be utilized
+2026-03-31 19:08:43,571 llama_context:  CUDA_Host  output buffer size =     0.50 MiB
+2026-03-31 19:08:43,571 llama_kv_cache:      CUDA0 KV buffer size =   512.00 MiB
+2026-03-31 19:08:43,584 llama_kv_cache: size =  512.00 MiB (  4096 cells,  32 layers,  1/1 seqs), K (f16):  256.00 MiB, V (f16):  256.00 MiB
+2026-03-31 19:08:43,586 llama_context: Flash Attention was auto, set to enabled
+2026-03-31 19:08:43,770 llama_context:      CUDA0 compute buffer size =   258.50 MiB
+2026-03-31 19:08:43,770 llama_context:  CUDA_Host compute buffer size =    16.01 MiB
+2026-03-31 19:08:43,770 llama_context: graph nodes  = 999
+2026-03-31 19:08:43,770 llama_context: graph splits = 2
+2026-03-31 19:08:43,803 time=2026-03-31T19:08:43.803+05:30 level=INFO source=server.go:1390 msg="llama runner started in 4.96 seconds"
+2026-03-31 19:08:43,803 time=2026-03-31T19:08:43.803+05:30 level=INFO source=sched.go:561 msg="loaded runners" count=2
+2026-03-31 19:08:43,803 time=2026-03-31T19:08:43.803+05:30 level=INFO source=server.go:1352 msg="waiting for llama runner to start responding"
+2026-03-31 19:08:43,804 time=2026-03-31T19:08:43.803+05:30 level=INFO source=server.go:1390 msg="llama runner started in 4.96 seconds"
+2026-03-31 19:08:44,182 [GIN] 2026/03/31 - 19:08:44 | 200 |    6.8000277s |       127.0.0.1 | POST     "/api/generate"
+2026-03-31 19:08:49,968 [GIN] 2026/03/31 - 19:08:49 | 200 |    3.7537262s |       127.0.0.1 | POST     "/api/generate"
