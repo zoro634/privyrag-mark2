@@ -34,4 +34,4 @@ class EmbeddingGenerator:
         return self.model.create_embeddings(texts)
 
 def select_embedder(model_name: str, ollama_host: str | None = None):
-    return OllamaEmbedder(model_name="nomic-embed-text", host=ollama_host)
+    return OllamaEmbedder(model_name=model_name, host=ollama_host)

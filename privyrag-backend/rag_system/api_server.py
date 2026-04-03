@@ -139,8 +139,25 @@ class AdvancedRagApiHandler(http.server.BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == "/models":
             self.handle_models()
+        elif self.path == "/files":
+            self.handle_files()
         else:
             self.send_json_response({"error": "Not Found"}, 404)
+
+    def handle_files(self):
+        try:
+            import lancedb
+            db = lancedb.connect("./lancedb")
+            try:
+                table = db.open_table("default_text_table")
+                df = table.to_pandas()
+                files = list(df["filename"].unique())
+                file_list = [{"name": str(f), "date": "1970-01-01T00:00:00.000Z"} for f in files]
+                self.send_json_response({"files": file_list})
+            except Exception:
+                self.send_json_response({"files": []})
+        except Exception as e:
+            self.send_json_response({"error": str(e)}, 500)
 
     def handle_clear_docs(self):
         try:
@@ -216,6 +233,8 @@ Compare their contents, highlight shared risks or liabilities, outline key miles
             query = data.get("query")
             doc_type = data.get("doc_type", "general").lower()
             history = data.get("history", [])
+            llm_model = data.get("llm_model", "llama3:8b")
+            target_file = data.get("target_file", "all")
 
             if not query:
                 self.send_json_response({"error": "Query is required"}, 400)
@@ -226,30 +245,63 @@ Compare their contents, highlight shared risks or liabilities, outline key miles
 
             db = lancedb.connect("./lancedb")
             
-            embedder = select_embedder("mxbai-embed-large")
-            query_vector = embedder.create_embeddings([query])[0]
-
             context = ""
             sources = []
-            try:
-                table = db.open_table("default_text_table")
-                results = table.search(query_vector).limit(25).to_df()
-                if len(results) > 0:
-                    context_pieces = []
-                    for _, row in results.iterrows():
-                        file_source = row.get("filename", "Unknown")
-                        if file_source not in sources:
-                            sources.append(file_source)
-                        context_pieces.append(f"--- Source: {file_source} ---\n{row['text']}")
-                    context = "\n\n".join(context_pieces)
-            except Exception as e:
-                print("Table not found or empty:", e)
+            
+            if doc_type == "summarize":
+                try:
+                    table = db.open_table("default_text_table")
+                    df = table.to_pandas()
+                    if target_file != "all":
+                        df = df[df["filename"] == target_file]
+                    if len(df) > 0:
+                        context_pieces = []
+                        for fname, group in df.groupby("filename"):
+                            fname_str = f"{fname} (Full File)"
+                            if fname_str not in sources:
+                                sources.append(fname_str)
+                            context_pieces.append(f"--- Document: {fname} ---\n" + "\n".join(group["text"].tolist()))
+                        context = "\n\n".join(context_pieces)
+                except Exception as e:
+                    print("Table not found or empty:", e)
+            else:
+                try:
+                    embedder = select_embedder("mxbai-embed-large")
+                    query_vector = embedder.create_embeddings([query])[0]
+                    table = db.open_table("default_text_table")
+                    search_query = table.search(query_vector)
+                    if target_file != "all":
+                        # Apply LanceDB vector pre-filtering
+                        search_query = search_query.where(f"filename = '{target_file}'")
+                    results = search_query.limit(25).to_df()
+                    if len(results) > 0:
+                        context_pieces = []
+                        source_scores = {}
+                        for _, row in results.iterrows():
+                            file_source = row.get("filename", "Unknown")
+                            
+                            # LanceDB defaults to L2 distance. Smaller is closer.
+                            dist = row["_distance"] if "_distance" in row else 0.5
+                            conf = max(0, min(100, int((1.0 - (float(dist) / 2.0)) * 100)))
+                            
+                            if file_source not in source_scores:
+                                source_scores[file_source] = conf
+                            else:
+                                source_scores[file_source] = max(source_scores[file_source], conf)
+                                
+                            context_pieces.append(f"--- Source: {file_source} ---\n{row['text']}")
+                            
+                        sources = [f"{k} (Score: {v}%)" for k, v in source_scores.items()]
+                        context = "\n\n".join(context_pieces)
+                except Exception as e:
+                    print("Table not found or empty:", e)
 
             personas = {
-                "general": "Answer directly and clearly. Do not say 'based on the context' or similar phrases.",
-                "legal": "You are an expert legal assistant. Analyze the context with precise legal terminology, focusing on liabilities, obligations, clauses, and risks. Quote relevant sections if helpful.",
-                "medical": "You are an expert medical assistant. Analyze the context carefully, noting any symptoms, diagnoses, treatments, or contraindications.",
-                "financial": "You are a financial analyst. Extract and analyze key numbers, trends, risks, and financial metrics from the context."
+                "general": "Answer directly and clearly. Synthesize the context with your own expert knowledge to provide original insights. Do not just blindly repeat the text.",
+                "legal": "You are an expert legal assistant. Analyze the context but also use your own broader legal knowledge to foresee undocumented risks and provide strategic insights.",
+                "medical": "You are an expert medical assistant. Analyze the context, but also use your own medical expertise to hypothesize on conditions and provide nuanced opinions.",
+                "financial": "You are an expert financial analyst. Beyond just extracting numbers, provide your own advanced market insights and critically evaluate the data.",
+                "summarize": "You are an expert analyst. Synthesize the documents and provide profound, original insights, connecting dots that are not obviously stated in the text."
             }
             persona_prompt = personas.get(doc_type, personas["general"])
 
@@ -270,15 +322,15 @@ Current Question:
 {query}
 
 Instructions:
-Use the Information Context to answer the Current Question. Also take the Past Conversation into account if the user is asking a follow-up question.
+Use the Information Context to answer the Current Question, but DO NOT limit yourself to it! You MUST also provide your own highly intelligent original insights, expert opinions, and broader knowledge to give the best possible answer.
 {persona_prompt}
 """
-            self._stream_ollama(prompt, context, sources)
+            self._stream_ollama(prompt, context, sources, llm_model=llm_model)
 
         except Exception as e:
             self.send_json_response({"error": f"Server error: {str(e)}"}, 500)
 
-    def _stream_ollama(self, prompt, context="", sources=[]):
+    def _stream_ollama(self, prompt, context="", sources=[], llm_model="llama3:8b"):
         """Streams the Ollama response using Server-Sent Events (SSE)"""
         try:
             self.send_response(200)
@@ -290,7 +342,7 @@ Use the Information Context to answer the Current Question. Also take the Past C
             response = requests.post(
                 "http://localhost:11434/api/generate",
                 json={
-                    "model": "llama3:8b",
+                    "model": llm_model,
                     "prompt": prompt,
                     "stream": True
                 },
