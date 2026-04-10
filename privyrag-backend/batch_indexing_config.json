@@ -11,7 +11,7 @@
     "enable_enrich": true,
     "enable_latechunk": true,
     "enable_docling": true,
-    "embedding_model": "Qwen/Qwen3-Embedding-0.6B",
+    "embedding_model": "nomic-embed-text",
     "generation_model": "qwen3:0.6b",
     "retrieval_mode": "hybrid",
     "window_size": 2

@@ -1,7 +1,15 @@
 import json
 import http.server
 import socketserver
+import sys
+from pathlib import Path
 import requests
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+DB_PATH = PROJECT_ROOT / "lancedb"
+
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
 # Try loading RAG (optional)
 try:
@@ -14,6 +22,12 @@ except Exception as e:
 
 
 class AdvancedRagApiHandler(http.server.BaseHTTPRequestHandler):
+
+    @staticmethod
+    def _connect_db():
+        import lancedb
+        DB_PATH.mkdir(parents=True, exist_ok=True)
+        return lancedb.connect(str(DB_PATH))
 
     def do_OPTIONS(self):
         self.send_response(200)
@@ -68,8 +82,8 @@ class AdvancedRagApiHandler(http.server.BaseHTTPRequestHandler):
             import lancedb
             from rag_system.indexing.representations import select_embedder
 
-            db = lancedb.connect("./lancedb")
-            embedder = select_embedder("mxbai-embed-large")
+            db = self._connect_db()
+            embedder = select_embedder("nomic-embed-text")
 
             # Native Recursive Character Text Splitting with Overlap
             def recursive_chunking(text, max_length=1200, overlap=150):
@@ -147,7 +161,7 @@ class AdvancedRagApiHandler(http.server.BaseHTTPRequestHandler):
     def handle_files(self):
         try:
             import lancedb
-            db = lancedb.connect("./lancedb")
+            db = self._connect_db()
             try:
                 table = db.open_table("default_text_table")
                 df = table.to_pandas()
@@ -162,7 +176,7 @@ class AdvancedRagApiHandler(http.server.BaseHTTPRequestHandler):
     def handle_clear_docs(self):
         try:
             import lancedb
-            db = lancedb.connect("./lancedb")
+            db = self._connect_db()
             try:
                 db.drop_table("default_text_table")
             except Exception:
@@ -183,7 +197,7 @@ class AdvancedRagApiHandler(http.server.BaseHTTPRequestHandler):
                 return
 
             import lancedb
-            db = lancedb.connect("./lancedb")
+            db = self._connect_db()
             try:
                 table = db.open_table("default_text_table")
                 table.delete(f"`filename` = '{filename}'")
@@ -197,7 +211,7 @@ class AdvancedRagApiHandler(http.server.BaseHTTPRequestHandler):
     def handle_summarize_all(self):
         try:
             import lancedb
-            db = lancedb.connect("./lancedb")
+            db = self._connect_db()
             try:
                 table = db.open_table("default_text_table")
                 df = table.to_pandas()
@@ -243,7 +257,7 @@ Compare their contents, highlight shared risks or liabilities, outline key miles
             import lancedb
             from rag_system.indexing.representations import select_embedder
 
-            db = lancedb.connect("./lancedb")
+            db = self._connect_db()
             
             context = ""
             sources = []
@@ -266,14 +280,14 @@ Compare their contents, highlight shared risks or liabilities, outline key miles
                     print("Table not found or empty:", e)
             else:
                 try:
-                    embedder = select_embedder("mxbai-embed-large")
+                    embedder = select_embedder("nomic-embed-text")
                     query_vector = embedder.create_embeddings([query])[0]
                     table = db.open_table("default_text_table")
                     search_query = table.search(query_vector)
                     if target_file != "all":
                         # Apply LanceDB vector pre-filtering
                         search_query = search_query.where(f"filename = '{target_file}'")
-                    results = search_query.limit(25).to_df()
+                    results = search_query.limit(25).to_pandas()
                     if len(results) > 0:
                         context_pieces = []
                         source_scores = {}
@@ -371,10 +385,27 @@ Use the Information Context to answer the Current Question, but DO NOT limit you
     # Models endpoint
     def handle_models(self):
         try:
-            response = requests.get("http://localhost:11434/api/tags")
+            response = requests.get("http://localhost:11434/api/tags", timeout=15)
+            response.raise_for_status()
             data = response.json()
 
-            models = [m["name"] for m in data.get("models", [])]
+            all_models = data.get("models", [])
+            models = []
+            for model in all_models:
+                name = model.get("name", "")
+                details = model.get("details", {})
+                family = str(details.get("family", "")).lower()
+                families = [str(item).lower() for item in details.get("families", [])]
+                is_embedding_model = (
+                    "embed" in name.lower()
+                    or family == "bert"
+                    or "bert" in families
+                )
+                if not is_embedding_model:
+                    models.append(name)
+
+            if not models:
+                models = [m["name"] for m in all_models if m.get("name")]
 
             self.send_json_response({
                 "models": models
@@ -392,7 +423,7 @@ Use the Information Context to answer the Current Question, but DO NOT limit you
 
 
 def start_server(port=8001):
-    class ReusableTCPServer(socketserver.TCPServer):
+    class ReusableTCPServer(socketserver.ThreadingTCPServer):
         allow_reuse_address = True
 
     with ReusableTCPServer(("", port), AdvancedRagApiHandler) as httpd:

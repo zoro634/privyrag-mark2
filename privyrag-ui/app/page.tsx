@@ -17,6 +17,22 @@ type ChatSession = {
   updatedAt: Date;
 };
 
+type StoredMessage = Omit<Message, "timestamp"> & {
+  timestamp: string;
+};
+
+type StoredSession = Omit<ChatSession, "updatedAt" | "messages"> & {
+  updatedAt: string;
+  messages: StoredMessage[];
+};
+
+type BackendFile = {
+  name: string;
+  date: string;
+};
+
+const isChatModel = (model: string) => !model.toLowerCase().includes("embed");
+
 export default function Home() {
   const [query, setQuery] = useState("");
   
@@ -49,15 +65,15 @@ export default function Home() {
     const savedSessions = localStorage.getItem("privyrag_sessions");
     if (savedSessions) {
       try {
-        const parsed = JSON.parse(savedSessions);
-        const hydrated = parsed.map((s: any) => ({
+        const parsed: StoredSession[] = JSON.parse(savedSessions);
+        const hydrated = parsed.map((s) => ({
           ...s,
           updatedAt: new Date(s.updatedAt),
-          messages: s.messages.map((m: any) => ({ ...m, timestamp: new Date(m.timestamp) }))
+          messages: s.messages.map((m) => ({ ...m, timestamp: new Date(m.timestamp) }))
         }));
         setSessions(hydrated);
         if (hydrated.length > 0) setActiveSessionId(hydrated[0].id);
-      } catch (e) {
+      } catch {
         startNewChat();
       }
     } else {
@@ -69,8 +85,10 @@ export default function Home() {
       .then(res => res.json())
       .then(data => {
         if (data.models && data.models.length > 0) {
-          setModels(data.models);
-          setSelectedModel(data.models[0]);
+          const availableModels = (data.models as string[]).filter(isChatModel);
+          const nextModels = availableModels.length > 0 ? availableModels : data.models;
+          setModels(nextModels);
+          setSelectedModel(nextModels[0]);
         }
       }).catch(() => setIsConnected(false));
 
@@ -79,7 +97,7 @@ export default function Home() {
       .then(res => res.json())
       .then(data => {
         if (data.files) {
-          setUploadedFiles(data.files.map((f: any) => ({ ...f, date: new Date(f.date) })));
+          setUploadedFiles((data.files as BackendFile[]).map((f) => ({ ...f, date: new Date(f.date) })));
         }
       }).catch(() => setIsConnected(false));
   }, []);
@@ -171,44 +189,80 @@ export default function Home() {
 
       let botText = "";
       let botSources: string[] = [];
+      let sseBuffer = "";
+
+      const applyBotUpdate = (text: string, sources?: string[]) => {
+        updateActiveMessages(prev => prev.map(m =>
+          m.id === botMsgId ? { ...m, text, ...(sources ? { sources } : {}) } : m
+        ));
+      };
+
+      const processSseEvent = (eventBlock: string) => {
+        const dataLines = eventBlock
+          .split("\n")
+          .filter(line => line.startsWith("data: "))
+          .map(line => line.slice(6));
+
+        if (dataLines.length === 0) return;
+
+        try {
+          const data = JSON.parse(dataLines.join("\n"));
+
+          if (data.error) {
+            const errorText = `Error: ${data.error}`;
+            botText = errorText;
+            applyBotUpdate(errorText, botSources);
+            return;
+          }
+
+          if (data.done) {
+            botSources = data.sources || [];
+            applyBotUpdate(botText || "No output returned from the model.", botSources);
+            return;
+          }
+
+          if (data.text) {
+            botText += data.text;
+            applyBotUpdate(botText);
+          }
+        } catch (e) {
+          console.error("Error parsing SSE event:", eventBlock, e);
+        }
+      };
 
       while (true) {
         const { done, value } = await reader.read();
-        if (done) break;
-        
-        const chunk = decoder.decode(value, { stream: true });
-        const lines = chunk.split("\n\n");
-        
-        for (const line of lines) {
-          if (line.startsWith("data: ")) {
-            try {
-              const data = JSON.parse(line.slice(6));
-              if (data.error) {
-                console.error(data.error);
-                continue;
-              }
-              if (data.done) {
-                botSources = data.sources || [];
-              } else if (data.text) {
-                botText += data.text;
-                updateActiveMessages(prev => prev.map(m => 
-                  m.id === botMsgId ? { ...m, text: botText } : m
-                ));
-              }
-            } catch (e) {
-              console.error("Error parsing SSE:", line, e);
-            }
+        if (done) {
+          sseBuffer += decoder.decode();
+          break;
+        }
+
+        sseBuffer += decoder.decode(value, { stream: true });
+
+        let eventBoundary = sseBuffer.indexOf("\n\n");
+        while (eventBoundary !== -1) {
+          const eventBlock = sseBuffer.slice(0, eventBoundary).trim();
+          sseBuffer = sseBuffer.slice(eventBoundary + 2);
+
+          if (eventBlock) {
+            processSseEvent(eventBlock);
           }
+
+          eventBoundary = sseBuffer.indexOf("\n\n");
         }
       }
 
-      if (botSources.length > 0) {
-        updateActiveMessages(prev => prev.map(m => 
-            m.id === botMsgId ? { ...m, sources: botSources } : m
-        ));
+      const trailingEvent = sseBuffer.trim();
+      if (trailingEvent) {
+        processSseEvent(trailingEvent);
       }
+
+      if (!botText && botSources.length === 0) {
+        applyBotUpdate("No output returned from the model.");
+      }
+
       setIsConnected(true);
-    } catch (err) {
+    } catch {
       updateActiveMessages(prev => [...prev, { id: Date.now().toString(), text: "Connection error with the AI engine.", role: "bot", timestamp: new Date() }]);
       setIsConnected(false);
     }
@@ -271,7 +325,7 @@ export default function Home() {
         setUploadedFiles([]);
         setToast({ message: "Knowledge base cleared.", type: "success" });
       }
-    } catch (err) { }
+    } catch {}
   };
 
   const deleteDocument = async (filename: string) => {
@@ -286,7 +340,7 @@ export default function Home() {
         setUploadedFiles(prev => prev.filter(f => f.name !== filename));
         setToast({ message: `${filename} deleted`, type: "success" });
       }
-    } catch (err) {}
+    } catch {}
   };
 
   const exportCurrentChat = () => {
@@ -310,7 +364,6 @@ export default function Home() {
   };
 
   const formatTime = (date: Date) => date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-  const formatDate = (date: Date) => date.toLocaleDateString([], { month: 'short', day: 'numeric' });
 
   const querySuggestions = [
     "Summarize the key metrics and milestones.",
