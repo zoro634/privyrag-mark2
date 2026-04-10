@@ -1,181 +1,202 @@
 import requests
 import json
-from typing import List, Dict, Any
-import base64
-from io import BytesIO
-from PIL import Image
-import httpx, asyncio
+import os
+from typing import List, Dict, Optional
 
 class OllamaClient:
-    """
-    An enhanced client for Ollama that now handles image data for VLM models.
-    """
-    def __init__(self, host: str = "http://localhost:11434"):
-        self.host = host
-        self.api_url = f"{host}/api"
-        # (Connection check remains the same)
-
-    def _image_to_base64(self, image: Image.Image) -> str:
-        """Converts a Pillow Image to a base64 string."""
-        buffered = BytesIO()
-        image.save(buffered, format="PNG")
-        return base64.b64encode(buffered.getvalue()).decode('utf-8')
-
-    def generate_embedding(self, model: str, text: str) -> List[float]:
+    def __init__(self, base_url: Optional[str] = None):
+        if base_url is None:
+            base_url = os.getenv("OLLAMA_HOST", "http://localhost:11434")
+        self.base_url = base_url
+        self.api_url = f"{base_url}/api"
+    
+    def is_ollama_running(self) -> bool:
+        """Check if Ollama server is running"""
+        try:
+            response = requests.get(f"{self.base_url}/api/tags", timeout=5)
+            return response.status_code == 200
+        except requests.exceptions.RequestException:
+            return False
+    
+    def list_models(self) -> List[str]:
+        """Get list of available models"""
+        try:
+            response = requests.get(f"{self.api_url}/tags")
+            if response.status_code == 200:
+                models = response.json().get("models", [])
+                return [model["name"] for model in models]
+            return []
+        except requests.exceptions.RequestException as e:
+            print(f"Error fetching models: {e}")
+            return []
+    
+    def pull_model(self, model_name: str) -> bool:
+        """Pull a model if not available"""
         try:
             response = requests.post(
-                f"{self.api_url}/embeddings",
-                json={"model": model, "prompt": text}
+                f"{self.api_url}/pull",
+                json={"name": model_name},
+                stream=True
             )
-            response.raise_for_status()
-            return response.json().get("embedding", [])
+            
+            if response.status_code == 200:
+                print(f"Pulling model {model_name}...")
+                for line in response.iter_lines():
+                    if line:
+                        data = json.loads(line)
+                        if "status" in data:
+                            print(f"Status: {data['status']}")
+                        if data.get("status") == "success":
+                            return True
+                return True
+            return False
         except requests.exceptions.RequestException as e:
-            print(f"Error generating embedding: {e}")
-            return []
-
-    def generate_completion(
-        self,
-        model: str,
-        prompt: str,
-        *,
-        format: str = "",
-        images: List[Image.Image] | None = None,
-        enable_thinking: bool | None = None,
-    ) -> Dict[str, Any]:
-        """
-        Generates a completion, now with optional support for images.
-
-        Args:
-            model: The name of the generation model (e.g., 'llava', 'qwen-vl').
-            prompt: The text prompt for the model.
-            format: The format for the response, e.g., "json".
-            images: A list of Pillow Image objects to send to the VLM.
-            enable_thinking: Optional flag to disable chain-of-thought for Qwen models.
-        """
+            print(f"Error pulling model: {e}")
+            return False
+    
+    def chat(self, message: str, model: str = "llama3.2", conversation_history: List[Dict] = None, enable_thinking: bool = True) -> str:
+        """Send a chat message to Ollama"""
+        if conversation_history is None:
+            conversation_history = []
+        
+        # Add user message to conversation
+        messages = conversation_history + [{"role": "user", "content": message}]
+        
         try:
             payload = {
                 "model": model,
-                "prompt": prompt,
-                "stream": False
+                "messages": messages,
+                "stream": False,
             }
-            if format:
-                payload["format"] = format
             
-            if images:
-                payload["images"] = [self._image_to_base64(img) for img in images]
-
-            # Optional: disable thinking mode for Qwen3 / DeepSeek models
-            if enable_thinking is not None:
-                payload["chat_template_kwargs"] = {"enable_thinking": enable_thinking}
-
+            # Multiple approaches to disable thinking tokens
+            if not enable_thinking:
+                payload.update({
+                    "think": False,  # Native Ollama parameter
+                    "options": {
+                        "think": False,
+                        "thinking": False,
+                        "temperature": 0.7,
+                        "top_p": 0.9
+                    }
+                })
+            else:
+                payload["think"] = True
+            
             response = requests.post(
-                f"{self.api_url}/generate",
-                json=payload
+                f"{self.api_url}/chat",
+                json=payload,
+                timeout=60
             )
-            response.raise_for_status()
-            response_lines = response.text.strip().split('\n')
-            final_response = json.loads(response_lines[-1])
-            return final_response
-
+            
+            if response.status_code == 200:
+                result = response.json()
+                response_text = result["message"]["content"]
+                
+                # Additional cleanup: remove any thinking tokens that might slip through
+                if not enable_thinking:
+                    # Remove common thinking token patterns
+                    import re
+                    response_text = re.sub(r'<think>.*?</think>', '', response_text, flags=re.DOTALL | re.IGNORECASE)
+                    response_text = re.sub(r'<thinking>.*?</thinking>', '', response_text, flags=re.DOTALL | re.IGNORECASE)
+                    response_text = response_text.strip()
+                
+                return response_text
+            else:
+                return f"Error: {response.status_code} - {response.text}"
+                
         except requests.exceptions.RequestException as e:
-            print(f"Error generating completion: {e}")
-            return {}
-
-    # -------------------------------------------------------------
-    # Async variant – uses httpx so the caller can await multiple
-    # LLM calls concurrently (triage, verification, etc.).
-    # -------------------------------------------------------------
-    async def generate_completion_async(
-        self,
-        model: str,
-        prompt: str,
-        *,
-        format: str = "",
-        images: List[Image.Image] | None = None,
-        enable_thinking: bool | None = None,
-        timeout: int = 60,
-    ) -> Dict[str, Any]:
-        """Asynchronous version of generate_completion using httpx."""
-
-        payload = {"model": model, "prompt": prompt, "stream": False}
-        if format:
-            payload["format"] = format
-        if images:
-            payload["images"] = [self._image_to_base64(img) for img in images]
-
-        if enable_thinking is not None:
-            payload["chat_template_kwargs"] = {"enable_thinking": enable_thinking}
-
+            return f"Connection error: {e}"
+    
+    def chat_stream(self, message: str, model: str = "llama3.2", conversation_history: List[Dict] = None, enable_thinking: bool = True):
+        """Stream chat response from Ollama"""
+        if conversation_history is None:
+            conversation_history = []
+        
+        messages = conversation_history + [{"role": "user", "content": message}]
+        
         try:
-            async with httpx.AsyncClient(timeout=timeout) as client:
-                resp = await client.post(f"{self.api_url}/generate", json=payload)
-                resp.raise_for_status()
-                return json.loads(resp.text.strip().split("\n")[-1])
-        except (httpx.HTTPError, asyncio.CancelledError) as e:
-            print(f"Async Ollama completion error: {e}")
-            return {}
+            payload = {
+                "model": model,
+                "messages": messages,
+                "stream": True,
+            }
+            
+            # Multiple approaches to disable thinking tokens
+            if not enable_thinking:
+                payload.update({
+                    "think": False,  # Native Ollama parameter
+                    "options": {
+                        "think": False,
+                        "thinking": False,
+                        "temperature": 0.7,
+                        "top_p": 0.9
+                    }
+                })
+            else:
+                payload["think"] = True
+            
+            response = requests.post(
+                f"{self.api_url}/chat",
+                json=payload,
+                stream=True,
+                timeout=60
+            )
+            
+            if response.status_code == 200:
+                for line in response.iter_lines():
+                    if line:
+                        try:
+                            data = json.loads(line)
+                            if "message" in data and "content" in data["message"]:
+                                content = data["message"]["content"]
+                                
+                                # Filter out thinking tokens in streaming mode
+                                if not enable_thinking:
+                                    # Skip content that looks like thinking tokens
+                                    if '<think>' in content.lower() or '<thinking>' in content.lower():
+                                        continue
+                                
+                                yield content
+                        except json.JSONDecodeError:
+                            continue
+            else:
+                yield f"Error: {response.status_code} - {response.text}"
+                
+        except requests.exceptions.RequestException as e:
+            yield f"Connection error: {e}"
 
-    # -------------------------------------------------------------
-    # Streaming variant – yields token chunks in real time
-    # -------------------------------------------------------------
-    def stream_completion(
-        self,
-        model: str,
-        prompt: str,
-        *,
-        images: List[Image.Image] | None = None,
-        enable_thinking: bool | None = None,
-    ):
-        """Generator that yields partial *response* strings as they arrive.
-
-        Example:
-
-            for tok in client.stream_completion("qwen2", "Hello"):
-                print(tok, end="", flush=True)
-        """
-        payload: Dict[str, Any] = {"model": model, "prompt": prompt, "stream": True}
-        if images:
-            payload["images"] = [self._image_to_base64(img) for img in images]
-        if enable_thinking is not None:
-            payload["chat_template_kwargs"] = {"enable_thinking": enable_thinking}
-
-        with requests.post(f"{self.api_url}/generate", json=payload, stream=True) as resp:
-            resp.raise_for_status()
-            for raw_line in resp.iter_lines():
-                if not raw_line:
-                    # Keep-alive newline
-                    continue
-                try:
-                    data = json.loads(raw_line.decode())
-                except json.JSONDecodeError:
-                    continue
-                # The Ollama streaming API sends objects like {"response":"Hi","done":false}
-                chunk = data.get("response", "")
-                if chunk:
-                    yield chunk
-                if data.get("done"):
-                    break
-
-if __name__ == '__main__':
-    # This test now requires a VLM model like 'llava' or 'qwen-vl' to be pulled.
-    print("Ollama client updated for multimodal (VLM) support.")
-    try:
-        client = OllamaClient()
-        # Create a dummy black image for testing
-        dummy_image = Image.new('RGB', (100, 100), 'black')
-        
-        # Test VLM completion
-        vlm_response = client.generate_completion(
-            model="llava", # Make sure you have run 'ollama pull llava'
-            prompt="What color is this image?",
-            images=[dummy_image]
-        )
-        
-        if vlm_response and 'response' in vlm_response:
-            print("\n--- VLM Test Response ---")
-            print(vlm_response['response'])
+def main():
+    """Test the Ollama client"""
+    client = OllamaClient()
+    
+    # Check if Ollama is running
+    if not client.is_ollama_running():
+        print("[ERROR] Ollama is not running. Please start Ollama first.")
+        print("Install: https://ollama.ai")
+        print("Run: ollama serve")
+        return
+    
+    print("[OK] Ollama is running!")
+    
+    # List available models
+    models = client.list_models()
+    print(f"Available models: {models}")
+    
+    # Try to use llama3.2, pull if needed
+    model_name = "llama3.2"
+    if model_name not in [m.split(":")[0] for m in models]:
+        print(f"Model {model_name} not found. Pulling...")
+        if client.pull_model(model_name):
+            print(f"[OK] Model {model_name} pulled successfully!")
         else:
-            print("\nFailed to get VLM response. Is 'llava' model pulled and running?")
+            print(f"[ERROR] Failed to pull model {model_name}")
+            return
+    
+    # Test chat
+    print("\n Testing chat...")
+    response = client.chat("Hello! Can you tell me a short joke?", model_name)
+    print(f"AI: {response}")
 
-    except Exception as e:
-        print(f"An error occurred: {e}")
+if __name__ == "__main__":
+    main()    
